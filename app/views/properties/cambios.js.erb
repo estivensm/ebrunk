@@ -1,0 +1,8 @@
+<%if @property.state_favorite == true%>
+
+$('#hola<%= @property.id %>').css({'color': 'red' });
+<%else%>
+
+$('#hola<%= @property.id %>').css({'color': 'gray'});
+
+<%end%>

@@ -1,0 +1,242 @@
+
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-md-3" id="contenido-title">
+  <h4><i class="fas fa-home"></i> DATOS DEL AVISO</h4>
+</div>
+
+<div class="col-md-12" style="padding: 0px; margin-bottom: 3  0px;"> 
+  <div class="col-md-3">
+     <%= form.label "Tipo de oferta" %>
+      <%val2 = "" 
+                    action_name == "edit" ? val2 = @properties.type_of_offer : val2 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+         <%= form.select 'type_of_offer', options_for_select(["Seleccione", "Venta", "Arriendo", "Alquiler Vacacional"], val2), {},{:class => 'form form-control select'}%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Tipo de inmueble" %>
+          <%val1 = "" 
+                    action_name == "edit" ? val1 = @properties.type_of_offer : val1 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+       <%= form.select 'property_type', options_for_select(["Seleccione Tipo de Inmueble","Apartamento", "Casa", "Finca", "Parqueadero","Oficina", "Local", "Bodega", "Lote","Habitacion", "Consultorio", "Edificio", "Cabaña","Casa Campestre", "Aparta Estudio", "Casa Lote"], val1), {},{:class => 'form form-control select'}%>
+    </div>
+    <br>
+  </div>
+</div>
+
+  <%= form.hidden_field :runner_id ,:value =>  current_runner.id %> 
+<div class="col-md-4" id="contenido-title">
+  <h4><i class="fas fa-home"></i> UBICACIÓN DEL INMUEBLE</h4>
+</div>
+
+<div class="col-md-12" style="padding: 0px; margin-bottom: 3  0px;" > 
+  <div class="col-md-3">
+     <%= form.label "Pais" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.select :country_id,get_country.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+     <%= form.label "Departamento" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.text_field :department, class: "form form-control" %>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Ciudad" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+       <%= form.text_field :city, class: "form form-control" %>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Dirección Del Inmueble" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.text_field :address , class: "form form-control"%>
+    </div>
+    <br>
+  </div>
+
+<div class="col-md-5" id="contenido-title">
+  <h4><i class="fas fa-home"></i> DESCRIPCIÓN DEL INMUEBLE</h4>
+</div>
+
+<div class="col-md-12" style="padding: 0px; margin-bottom: 3  0px;" > 
+
+  <div class="col-md-3">
+    <%= form.label "Precio del Inmueble" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.number_field :prince , class: "form form-control"%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+   <%= form.label :Estrato %>
+         <%val3 = "" 
+                    action_name == "edit" ? val3 = @properties.stratum : val3 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.select 'stratum', options_for_select(["Seleccione El Estrato","1", "2", "3", "4","5", "6", "Campestre"], val3), {},{:class => 'form form-control select'}%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+   <%= form.label :Parqueaderos %>
+         <%val8 = "" 
+                    action_name == "edit" ? val8 = @properties.stratum : val8 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.select 'parking_lot', options_for_select(["Numero de Parqueaderos ","1", "2", "3", "4","5", "6"], val8), {},{:class => 'form form-control select'}%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label :Area %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.number_field :area , class: "form form-control"%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Planos" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.text_field :blueprints , class: "form form-control"%>
+    </div>
+     <br>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Número de Habitaciones"%>
+          <%val5 = "" 
+                    action_name == "edit" ? val5 = @properties.number_bedrooms : val5 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.select 'number_bedrooms', options_for_select(["Seleccione las Habitaciones","1", "2", "3", "4","5", "6", "7", "8","9", "10", "11", "12","13", "14", "15", "16","17", "18", "19", "20"], val5), {},{:class => 'form form-control select'}%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Numero de Baños" %>
+      <%val4 = "" 
+                  action_name == "edit" ? val4 = @properties.number_bathrooms : val4 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+       <%= form.select 'number_bathrooms', options_for_select(["Seleccione Numero de Baños","1", "2", "3", "4","5", "6", "7", "8","9", "10"], val4), {},{:class => 'form form-control select'}%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label "Niveles de La Propiedad" %>
+          <%val7 = "" 
+                  action_name == "edit" ? val7 = @properties.levels : val7 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.select 'levels', options_for_select(["Seleccione Numero de Niveles","1", "2", "3", "4","5", "6", "7", "8","9", "10"], val7), {},{:class => 'form form-control select'}%>
+    </div>
+  </div>
+
+
+  <div class="col-md-3">
+    <%= form.label :Estado_del_Inmueble %>
+      <%val6 = "" 
+                    action_name == "edit" ? val6 = @properties.state : val6 = "" %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%= form.select 'state', options_for_select(["Exelente", "Bueno", "Regular", "Aremodelar"], val6), {},{:class => 'form form-control select'}%>
+    </div>
+    <br>
+  </div>
+
+
+<div class="col-md-12" id="contenido-title">
+  <h4><i class="fas fa-home"></i> FOTOGRAFÍAS DEL ANUNCIO</h4>
+</div>
+
+<div class="col-md-12" style="padding: 0px; margin-bottom: 3  0px;" > 
+  <div class="col-md-3">
+    <div class="field">
+      <%= form.label :url_video %><br>
+      <%= form.text_field :url_video , class: "form form-control"%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="field">
+      <%= form.label :images %><br>
+      <%= form.file_field :images , class: "form form-control"%>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="field">
+      <%= form.label :Titulo_De_Imagen %><br>
+      <%= form.text_field :title , class: "form form-control"%>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <br>
+  <div class="actions">
+    <%= form.submit "Publicar Aviso", class: "btn1"%>
+    <%= button_to "Volver", properties_path ,class: "btn1" %>
+  </div>
+</div>
+
+<!--
+<div class="col-md-3">
+  <div class="field">
+    <%= form.label "Latitud" %><br>
+    <%= form.number_field :latitude , class: "form form-control"%>
+  </div>
+</div>
+
+<div class="col-md-3">
+  <div class="field">
+    <%= form.label "Longitud" %><br>
+    <%= form.number_field :length , class: "form form-control"%>
+  </div>
+</div>
+-->
+<% end %>
+
+<style>
+
+  #contenido-title h4{
+    padding-left: 0px !important;
+    padding: 10px;
+    border-radius: 2px;
+    color: #0e67c3;
+    text-align: left;
+  }
+
+  .input-group-addon{
+    background: #0e67c3;
+    border-color: #0e67c3;
+  }
+
+</style>

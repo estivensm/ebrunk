@@ -1,0 +1,65 @@
+<div class="container-fluid" id="filtros">
+
+  <h4><%= @properties.count %> Anuncios de Propiedades en Venta<br></h4> <i><%= page_entries_info @properties %></i><br><br>
+        <%= form_tag properties_path, :method => 'get' do%>
+
+        <div class="col-md-2" style="float: right; padding: 0px; width: 99px;">
+          <%= link_to properties_path, :title => "Cancelar Filtros", class: "btn btn-danger", id: "btn3" do%>
+            <i class="fas fa-ban"></i>
+          <% end -%> 
+
+          <%= button_tag class: "btn btn-primary sh3", :title => "Buscar Registros", id: "btn3" do %>
+          <i class="fas fa-search" style=""></i>
+          <% end -%>
+
+        </div>
+
+        <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
+          <%= select_tag 'search2', options_for_select(get_country.collect{ |u| ["#{u.name}", u.id, ] }),{:class => "form-control sh4", include_blank: true }%>
+        </div>
+
+        <div class="col-md-3" style=" padding-right: 2px; padding-left: 2px;">
+          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control"%>
+        </div>
+
+        <div class="col-md-3" style=" padding-right: 2px;  padding-left: 2px;">
+          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control"%>
+        </div>
+
+        <div class="col-md-1" style=" padding-right: 2px; padding-left: 2px;">
+          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control", style: "width: 181px !important;"%>
+        </div>
+
+      <% end -%>
+</div>
+
+
+<style>
+
+  #filtros{
+    background: #efecec;
+    width: 100%;
+    padding: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  #count{
+    background: #0d67c3;
+    padding: 5px 11px;
+    border-radius: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #btn3{
+    float: right;
+    margin-left: 10px;
+  }
+
+  #filtros h4{
+    color: #696a73;
+    text-transform: capitalize;
+  }
+
+</style>
