@@ -18,11 +18,11 @@
 
 <div class="col-md-12" style="padding: 0px; margin-bottom: 3  0px;"> 
   <div class="col-md-3">
-     <%= form.label "Tipo de oferta" %>
-      <%val2 = "" 
+   <%= form.label "Tipo de oferta" %>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
+        <%val2 = "" 
                     action_name == "edit" ? val2 = @properties.type_of_offer : val2 = "" %>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
          <%= form.select 'type_of_offer', options_for_select(["Seleccione", "Venta", "Arriendo", "Alquiler Vacacional"], val2), {},{:class => 'form form-control select'}%>
     </div>
   </div>
