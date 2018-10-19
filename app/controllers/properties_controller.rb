@@ -1,7 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_runner!, :except => [:index, :show, :edit, :update]
-
+  before_action :authenticate_runner!
   # GET /properties
   # GET /properties.json
   def index
@@ -79,6 +78,6 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:type_of_offer, :parking_lot, :property_type, :runner_id, :country_id, :department, :city, :address, :latitude, :length, :prince, :stratum, :area, :blueprints, :number_bedrooms, :number_bathrooms, :levels, :state, :state_favorite, :url_video, :images, :title, images_attributes: [:id, :title, :images,:runner_id,:_destroy])
+      params.require(:property).permit(:type_of_offer, :parking_lot, :property_type, :runner_id, :country_id, :department, :city, :address, :latitude, :length, :prince, :stratum, :area, :blueprints, :number_bedrooms, :number_bathrooms, :levels, :state, :state_favorite, :url_video, :images, :title)
     end
 end
