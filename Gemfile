@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -25,7 +25,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
+gem 'devise', '~> 4.3'
+gem 'jquery-rails'
+gem 'carrierwave', '~> 0.11.2'
+gem 'annotate'
+gem 'will_paginate-bootstrap'
+gem 'will_paginate'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

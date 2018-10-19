@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ebrunk</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <!---------------------------- BOOSTRAMP ---------------------------------->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---------------------------- BOOSTRAMP ---------------------------------->
+
+
+    <!---------------------------- w3schools ---------------------------------->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!---------------------------- w3schools ---------------------------------->
+
+
+    <!---------------------------- carousel ---------------------------------->
+
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!---------------------------- carousel ---------------------------------->
+  </head>
+<!--
+  <div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container" style="margin-right: 0px !important;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="position: relative; left: -57px;">Logo</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><%= link_to "Home", root_path %></li>
+                        <li><%= link_to "Publicaciones",properties_path  %></li>
+                    <% if runner_signed_in? %>
+                        <li><%= link_to "Crear Nueva Propiedad", properties_path  %></li>
+                    <% end -%>
+                    </ul> 
+
+
+                    <ul class="nav navbar-nav pull-right">
+                      <% if runner_signed_in? %>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="    min-width: 111px;">
+                                <li> <%= link_to 'Editar Perfil', edit_runner_registration_path, :class => 'navbar-link' %></li>
+                                <li><%= link_to "Salir", destroy_runner_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                            </ul>
+                            <% else %>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registrate<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="    min-width: 111px;">
+                                <li> <%= link_to "Registrate", new_runner_registration_path, :class => 'navbar-link'  %></li>
+                                <li><%= link_to "Ingresar", new_runner_session_path, :class => 'navbar-link'  %></li>
+                            </ul>
+                          <% end -%>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+-->
+
+<div id='cssmenu'>
+<ul>
+   <li><%= link_to "Proyectos", properties_path %></li>
+   <li><a href='#'><span>About</span></a></li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+   <% if runner_signed_in? %>
+
+    <li class='has-sub' style="float: right;"><a href='#'><span><%= current_runner.name%></span></a>
+      <ul>
+        <li><%= link_to "Home", runner_home_path %></li>
+        <li><%= link_to 'Editar Perfil', edit_runner_registration_path, :class => 'navbar-link' %></li>
+        <li class='last'><%= link_to "Salir", destroy_runner_session_path, method: :delete, :class => 'navbar-link'  %></li>
+      </ul>
+    </li>
+
+   <% else %>
+
+
+    <li class='has-sub' style="float: right;"><a href='#'><span>Ingresar</span></a>
+      <ul>
+        <li><%= link_to "Registrate", new_runner_registration_path, :class => 'navbar-link'  %></li>
+        <li class='last'><%= link_to "Ingresar", new_runner_session_path, :class => 'navbar-link'  %></li>
+      </ul>
+    </li>
+
+   <% end -%>
+
+</ul>
+</div>
+<br>
+
+  <body>
+    <%= yield %>
+
+    <footer class="footer2">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-3 col-sm-6 col-xs-12">
+                    <h3>Browse <span>Categories</span></h3>
+                    <ul>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="col-md-3 col-sm-6 col-xs-12">
+                    <h3>How <span>to Buy</span></h3>
+                    <ul>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="col-md-3 col-sm-6 col-xs-12">
+                    <h3>Help <span>& Support</span></h3>
+                    <ul>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                        <li>
+                            <a href="#">Lorem Ipsum</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="col-md-3 col-sm-6 col-xs-12">
+                    <h3>Lorem <span>Ipsum</span></h3>
+                    <div class="input-group input-group-md">
+                      <input type="text" class="form-control" placeholder="Email Address">
+                      <span class="input-group-addon">Subscribe</span>
+                    </div>
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </nav>
+
+            </div> <!--/.row--> 
+        </div> <!--/.container--> 
+    </div> <!--/.footer-->
+    
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="pull-left"> Copyright © Footer E-commerce Plugin 2014. All right reserved.</div>
+        </div>
+    </div> <!--/.footer-bottom--> 
+</footer>
+
+  </body>
+</html>
