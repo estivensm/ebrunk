@@ -1,3 +1,3 @@
 class Country < ApplicationRecord
-	has_many :runner, optional: true
+	has_many :runners 
 end
