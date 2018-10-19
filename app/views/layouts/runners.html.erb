@@ -34,6 +34,8 @@
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <!---------------------------- carousel ---------------------------------->
+
+    
   </head>
 <!--
   <div class="navbar-wrapper">
@@ -84,13 +86,14 @@
 
 <div id='cssmenu'>
 <ul>
+    <li><%= link_to "Home", root_path %></li>
    <li><%= link_to "Proyectos", properties_path %></li>
    <li><a href='#'><span>About</span></a></li>
    <li class='last'><a href='#'><span>Contact</span></a></li>
    <% if runner_signed_in? %>
 
-    <li class='has-sub' style="float: right;"><a href='#'><span><%= current_runner.name%></span></a>
-      <ul>
+    <li class='has-sub' style="float: right; margin-right: 5px; cursor: pointer;"><a><span><%= current_runner.name%></span></a>
+      <ul  style="max-width: 80px;">
         <li><%= link_to "Home", runner_home_path %></li>
         <li><%= link_to 'Editar Perfil', edit_runner_registration_path, :class => 'navbar-link' %></li>
         <li class='last'><%= link_to "Salir", destroy_runner_session_path, method: :delete, :class => 'navbar-link'  %></li>
