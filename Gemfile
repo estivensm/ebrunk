@@ -33,6 +33,7 @@ gem 'carrierwave', '~> 0.11.2'
 gem 'annotate'
 gem 'will_paginate-bootstrap'
 gem 'will_paginate'
+gem "mini_magick"
 gem 'bootstrap-sass', '~> 3.3.7'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 # Use ActiveStorage variant

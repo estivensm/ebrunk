@@ -663,9 +663,7 @@ li {
 }
 
 .btn1:hover{
-   background-color: #8ac53f;
-  -webkit-transition-duration: 0.8s;
-  transition-duration: 0.9s;
+   background-color: #0e67c3;
 }
 
 .btn2{

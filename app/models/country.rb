@@ -1,3 +1,3 @@
 class Country < ApplicationRecord
-	belongs_to :runner
+	has_many :runners
 end

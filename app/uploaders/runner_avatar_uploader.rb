@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class PropertyUploader < CarrierWave::Uploader::Base
+class RunnerAvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
