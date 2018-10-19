@@ -1,7 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_runner!, :except => [:index, :show, :edit, :update]
-  layout 'runner_home'
+  before_action :authenticate_runner!
   # GET /properties
   # GET /properties.json
   def index
