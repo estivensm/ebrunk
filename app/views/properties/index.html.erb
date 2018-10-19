@@ -1,0 +1,215 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<section class="mb-5">
+    <div class="container">
+    <div class="row title py-3">
+        <div class="col-md-12" style="padding-left: 0px;">
+            <%= render "filtros"%>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-md-3">
+          <div class="row mb-3">
+              <div class="col-md-12" style="padding: 0px;">
+                  <div class="card">
+                      <div class="card-body">
+                          <strong><p>Category</p></strong>
+                          <ul class="list-unstyled">
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row mb-3">
+              <div class="col-md-12" style="padding: 0px;">
+                  <div class="card">
+                      <div class="card-body">
+                          <strong><p>Nature</p></strong>
+                          <ul class="list-unstyled">
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row mb-3">
+              <div class="col-md-12" style="padding: 0px;">
+                  <div class="card">
+                      <div class="card-body">
+                          <strong><p>Location</p></strong>
+                          <ul class="list-unstyled">
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                             <a href="#"> <li>Digital Accuracy</li></a>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                  <% @properties.each do |property| %>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                   <img src="https://s3.envato.com/files/248072868/Screenshot/01_preview.jpg">
+                                </div>
+                                <div class="col-md-7">
+                                    <h5>Msexchange contributes senior UX Designer</h5>
+                                    <small>Jopitor Inc., India</small>
+                                    <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
+                                </div>
+                                <div class="col-md-2" style="padding-left: 0px;">
+                                    <%= link_to 'Ver Producto', property, class: "btn2" %>
+                                </div>
+                              <div class="col-md-12">
+                                <div class="row" style="padding-left: 10px;">
+                                  <div class="col-md-3">
+                                    <small><b>Estado del Inmueble</b></small><br>
+                                    <small><%= property.state %></small>
+                                  </div>
+
+                                  <div class="col-md-3">
+                                    <small><b>Pais del Inmueble</b></small><br>
+                                    <small><%= property.country.name %></small>
+                                  </div>
+
+                                  <div class="col-md-3">
+                                    <small><b>Pais del Inmueble</b></small><br>
+                                    <small><%= property.country.name %></small>
+                                  </div>
+
+                                  <div class="col-md-3 text-right" style="padding-right: 10px; float: right;">
+                                    <%= link_to cambios_path(property.id),remote: true, method: :post do %>   
+                                  <% if property.state_favorite == true %>
+                                    <span id="hola<%= property.id %>" class="glyphicon glyphicon-heart" style = "font-size:30px;color:red"></span>
+                                   
+                                    <% else%>
+                                   
+                                    <span id="hola<%= property.id %>" class="glyphicon glyphicon-heart" style = "font-size:30px;color:gray"></span>
+
+                                  <% end -%>
+                                  <% end -%>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <br>
+                  <% end -%>
+                </div>
+                                          <div class = "col-md-12 paginate text-center title-table1">
+    <%= will_paginate @properties, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+  </div>
+            </div>           
+        </div>
+    </div>
+</div>
+</section>
+
+<h1>Properties</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type of offer</th>
+      <th>Property type</th>
+      <th>Runner</th>
+      <th>Country</th>
+      <th>Department</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Length</th>
+      <th>Prince</th>
+      <th>Stratum</th>
+      <th>Area</th>
+      <th>Blueprints</th>
+      <th>Number bedrooms</th>
+      <th>Number bathrooms</th>
+      <th>Levels</th>
+      <th>State</th>
+      <th>State favorite</th>
+      <th>Url video</th>
+      <th>Images</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.type_of_offer %></td>
+        <td><%= property.property_type %></td>
+        <td><%= property.runner_id %></td>
+        <td><%= property.country_id %></td>
+        <td><%= property.department %></td>
+        <td><%= property.city %></td>
+        <td><%= property.address %></td>
+        <td><%= property.latitude %></td>
+        <td><%= property.length %></td>
+        <td><%= property.prince %></td>
+        <td><%= property.stratum %></td>
+        <td><%= property.area %></td>
+        <td><%= property.blueprints %></td>
+        <td><%= property.number_bedrooms %></td>
+        <td><%= property.number_bathrooms %></td>
+        <td><%= property.levels %></td>
+        <td><%= property.state %></td>
+        <td><%= property.state_favorite %></td>
+        <td><%= property.url_video %></td>
+        <td><%= property.images %></td>
+        <td><%= property.title %></td>
+        <td><%= link_to 'Show', property %></td>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path %>
+
+
+<style>
+
+.bg-orange {
+  background:#d8622b;color:#fff!important;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+img{
+  width:100%;max-height:560px;
+}
+
+a{
+  color:#696969;
+}
+
+.card-body{
+  font-size: 18px;
+}
+</style>

@@ -1,0 +1,95 @@
+<!-- LOGIN MODULE -->
+        <div class="login">
+            <div class="wrap">
+                <!-- TOGGLE -->
+                <div id="toggle-wrap">
+                    <div id="toggle-terms">
+                        <div id="cross">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- RECOVERY -->
+                <div class="recovery">
+                    <h2>Password Recovery</h2>
+                    <p>Enter either the <strong>email address</strong> or <strong>username</strong> on the account and <strong>click Submit</strong></p>
+                    <p>We'll email instructions on how to reset your password.</p>
+                    <form class="recovery-form" action="" method="post">
+                        <input type="text" class="input" id="user_recover" placeholder="Enter Email or Username Here">
+                        <input type="submit" class="button" value="Submit">
+                    </form>
+                    <p class="mssg">An email has been sent to you with further instructions.</p>
+                </div>
+
+                <!-- SLIDER -->
+                <div class="content">
+                    <!-- SLIDESHOW -->
+                    <div id="slideshow">
+                        <div class="one">
+                            <!--<h2><span>EVENTS</span></h2>
+                            <p>Sign up to attend any of hundreds of events nationwide</p>
+                            -->
+                        </div>
+                        <div class="two">
+                            <!--<h2><span>LEARNING</span></h2>
+                            <p>Thousands of instant online classes/tutorials included</p>
+                            -->
+                        </div>
+                        <div class="three">
+                            <!--<h2><span>GROUPS</span></h2>
+                            <p>Create your own groups and connect with others that share your interests</p>
+                            -->
+                        </div>
+                        <div class="four">
+                            <!--<h2><span>SHARING</span></h2>
+                            <p>Share your works and knowledge with the community on the public showcase section</p>
+                            -->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- LOGIN FORM -->
+                <div class="user">
+                    <!-- ACTIONS
+                    <div class="actions">
+                        <a class="help" href="#signup-tab-content">Sign Up</a><a class="faq" href="#login-tab-content">Login</a>
+                    </div>
+                    -->
+                    <div class="form-wrap">
+                        <!-- TABS -->
+                     
+                            <h3 class="login-tab"><a class="log-in active" href="#login-tab-content"><span>Ingresar<span></a></h3>
+                        <br>
+                        <!-- TABS CONTENT -->
+                      <div class="tabs-content">
+                            <!-- TABS CONTENT LOGIN -->
+                        <div id="login-tab-content" class="active">
+
+                          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+                                <p id="login_names">Email</p>
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "user_login", class: "input"%>
+
+  
+                                <p id="login_names">Contraseña</p>
+                                <%= f.password_field :password, autocomplete: "current-password", id: "user_pass", class: "input" %>
+                            
+
+                            <%= f.submit "Ingresar", class: "button" %><br>
+
+                          <% end %>
+
+                          <div class="help-action">
+
+                            <p align="center"><%= render "devise/shared/links" %><br>
+                                <a href="/" class="btn1">Pagina Proncipal</a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>

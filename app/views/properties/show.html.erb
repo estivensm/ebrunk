@@ -1,0 +1,258 @@
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:10px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container" style="border-top: 2px solid #dfe5e8;">
+         <h4 class="w3-center">Vendedor</h4>
+         <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i><p> <%= @property.runner.name %></p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+        </div>
+      </div>
+
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+      <div class="w3-container w3-card w3-white w3-round w3-margin" style="margin-top: 0px !important;     border-top: 2px solid #dfe5e8;"><br>
+        <div class="col-md-6" style="padding: 0px;">
+          <h2><%= @property.property_type %> en Venta </h2> 
+          <p><%= @property.city %></p>
+        </div>
+        <h3 style="float: right;"> $ <%= @property.prince %> </h3><br><br><br>
+        <table class="table-bordered">
+          <thead">
+            <tr>
+              <th><i class="fas fa-chart-area" style="color: #0e67c3;"></i> <%= @property.area %> m²</th>
+              <th><i class="fas fa-bed" style="color: #0e67c3;"></i> Habitaciones: <%= @property.number_bedrooms %></th>
+              <th><i class="fas fa-bath" style="color: #0e67c3;"></i> Baños: <%= @property.number_bathrooms %> </th>
+              <th><i class="fas fa-car-side" style="color: #0e67c3;"></i> Parqueaderos: <%= @property.parking_lot %></th>
+            </tr>
+          </thead>
+        </table>
+
+        <div class="col-md-12" style="padding: 0px;">
+          <div class="carousel"
+          data-flickity='{ "autoPlay": true}'>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+        </div>
+            <br><br>
+      </div>
+          <div class="w3-row-padding" style="margin:0 -16px">
+        </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <span class="w3-left w3-opacity">Descripcion</span>
+        <hr class="w3-clear">
+
+        <div class="col-md-4" style="padding: 0px;">
+          <ul class="list-group text-center">
+            <li class="list-group-item">Área Const:<br>
+              <b><%= @property.area %> m²</b>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <ul class="list-group text-center">
+            <li class="list-group-item">Estrato:<br>
+              <b><%= @property.stratum %></b>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <ul class="list-group text-center">
+            <li class="list-group-item">Ciudad:<br>
+               <b><%= @property.city %></b>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <span class="w3-left w3-opacity">Ubicacion del Inmueble</span>
+        <hr class="w3-clear">
+        <div class="col-md-12" style="padding: 0px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63460.01223186089!2d-75.58571159203002!3d6.230635615154693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa042651907d7e2a7!2sCaf%C3%A9+Literario+el+Taller!5e0!3m2!1ses-419!2sco!4v1539807186561" width="650" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div> 
+
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container" style="border-top: 2px solid #dfe5e8;">
+          <h2>asdasddsa</h2>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <h2>asdasdas</h2>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
+        <h2>asdasdas</h2>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+        <h1>asdasdsa</h1>
+      </div>
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+
+
+<style>
+
+  th{
+    padding: 10px;
+    width: 167px
+  }
+
+</style>
+      
+End Right Column 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type of offer:</strong>
+  <%= @property.type_of_offer %>
+</p>
+
+<p>
+  <strong>Property type:</strong>
+  <%= @property.property_type %>
+</p>
+
+<p>
+  <strong>Runner:</strong>
+  <%= @property.runner.email %>
+</p>
+
+<p>
+  <strong>Parqueaderos:</strong>
+  <%= @property.parking_lot %>  
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @property.country.name %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @property.department %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @property.city %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @property.latitude %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @property.length %>
+</p>
+
+<p>
+  <strong>Prince:</strong>
+  <%= @property.prince %>
+</p>
+
+<p>
+  <strong>Stratum:</strong>
+  <%= @property.stratum %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @property.area %>
+</p>
+
+<p>
+  <strong>Blueprints:</strong>
+  <%= @property.blueprints %>
+</p>
+
+<p>
+  <strong>Number bedrooms:</strong>
+  <%= @property.number_bedrooms %>
+</p>
+
+<p>
+  <strong>Number bathrooms:</strong>
+  <%= @property.number_bathrooms %>
+</p>
+
+<p>
+  <strong>Levels:</strong>
+  <%= @property.levels %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @property.state %>
+</p>
+
+<p>
+  <strong>State favorite:</strong>
+  <%= @property.state_favorite %>
+</p>
+
+<p>
+  <strong>Url video:</strong>
+  <%= @property.url_video %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= @property.images %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @property.title %>
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>
