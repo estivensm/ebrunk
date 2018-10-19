@@ -1,6 +1,7 @@
 <div class="container-fluid" id="filtros">
 
-  <h4><%= @properties.count %> Anuncios de Propiedades en Venta<br></h4> <i><%= page_entries_info @properties %></i><br><br>
+  <h4><%= @properties.count %> Anuncios de Propiedades en Venta <%= link_to 'Nueva Propiedad', new_property_path, class: "btn2", style: "float: right;" %><br></h4> <i><%= page_entries_info @properties %></i><br><br>
+
         <%= form_tag properties_path, :method => 'get' do%>
 
         <div class="col-md-2" style="float: right; padding: 0px; width: 99px;">
