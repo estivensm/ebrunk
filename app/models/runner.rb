@@ -1,5 +1,5 @@
 class Runner < ApplicationRecord
-  belongs_to :country
+  belongs_to :country, optional: true
  
   has_many :property
   # Include default devise modules. Others available are:
