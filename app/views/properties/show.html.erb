@@ -41,16 +41,35 @@
         </table>
 
         <div class="col-md-12" style="padding: 0px;">
-          <div class="carousel" style="display: none" 
-          data-flickity='{ "autoPlay": true}'>
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
-        </div>
-        <iframe width="580" height="400" src="https://my.matterport.com/show/?model=g8ioLttQigi" allowfullscreen allow="vr"></iframe>
+          <div class="container" style="padding: 0px;">
+            <div class="col-md-6" style="padding: 0px;">
+                    <div class="tab" role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Imagenes</a></li>
+                            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Videos</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs">
+                            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                                <div class="carousel"
+                                  data-flickity='{ "autoPlay": true}'>
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="Section2">
+                                  <iframe width="580" height="400" src="https://my.matterport.com/show/?model=g8ioLttQigi" allowfullscreen allow="vr"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
             <br><br>
       </div>
           <div class="w3-row-padding" style="margin:0 -16px">
@@ -131,8 +150,12 @@
   </div>
   
 <!-- End Page Container -->
-</div>
-</div">
+        </div>
+      </div">
+    </div>
+  </div>
+
+  <% @property.brunk_type %>
 
 <style>
 
@@ -140,6 +163,71 @@
     padding: 10px;
     width: 167px
   }
+
+  a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+.tab .nav-tabs{
+    border: none;
+    margin: 0;
+}
+.tab .nav-tabs li a{
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #293241;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    z-index: 2;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.tab .nav-tabs li a:hover,
+.tab .nav-tabs li.active a{ border: none; }
+.tab .nav-tabs li a:before{
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #f6f6f6;
+    border: 1px solid #e9e9e9;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.tab .nav-tabs li a:after{
+    content: "";
+    width: 0;
+    height: 4px;
+    background: #727cb6;
+    border: 1px solid #727cb6;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: all 1s ease 0s;
+}
+.tab .nav-tabs li:hover a:after,
+.tab .nav-tabs li.active a:after{
+    width: 100%;
+    opacity: 1;
+}
+.tab .tab-content{
+}
+@media only screen and (max-width: 479px){
+    .tab .nav-tabs li{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .tab .tab-content{ margin-top: 0; }
+}
 
 </style>
     

@@ -1,0 +1,80 @@
+<div class="row" style="background: #fff; border-radius: 4px;">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-md-9">
+      <div class="row mb-3">
+         <div class="col-md-12 col-md-offset-2">
+            <h1 align="center">Propiedades Para Intercambio </h1><br>
+             <% @properties.each do |property| %>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row" style="padding: 9px;">
+
+                            <div class="col-md-3">
+                                <img src="https://s3.envato.com/files/248072868/Screenshot/01_preview.jpg" height="86">
+                            </div>
+
+                            <div class="col-md-7" style="text-align: center;">
+                                <h5 style="margin-top: -1px;"><%= property.title%></h5>
+                                <small>Jopitor Inc., India</small>
+                                <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
+                            </div>
+
+                            <div class="col-md-2" style="padding-left: 0px;">
+                                <%= link_to 'Ver Producto', property, class: "btn2" %>
+                            </div>
+
+                              <div class="col-md-12">
+                                <div class="row" style="padding-left: 10px;">
+                                  <div class="col-md-3">
+                                    <small><b>Estado del Inmueble</b></small><br>
+                                    <small><%= property.state %></small>
+                                  </div>
+
+                                  <div class="col-md-3">
+                                    <small><b>Pais del Inmueble</b></small><br>
+                                    <small><%= property.country.name if  property %></small>
+                                  </div>
+
+                                  <div class="col-md-3">
+                                    <small><b>Pais del Inmueble</b></small><br>
+                                    <small><%= property.country.name %></small>
+                                  </div>
+
+                                  <div class="col-md-3 text-right" style="padding-right: 27px; float: right;">
+
+                    <%= link_to  edit_property_path(property) do%>
+                        <i class="fas fa-pencil-alt" style = "font-size:20px;" aria-hidden="true"></i>
+                    <% end -%>
+                                  <%= link_to  property, method: :delete, data: {
+                                       confirm: '¿Estas Seguro?',
+                                       'confirm-button-text': 'Borrar',
+                                       'cancel-button-text': 'Cancelar',
+                                       'confirm-button-color': '#CC0000',
+                                        text: 'Recuerda que el registro se borrara permanentemente',
+                                       'image-url': ''} do%>
+                                    <i class="fas fa-trash-alt" style = "font-size:20px; color: red;" aria-hidden="true"></i>
+                                <% end -%>    
+                                  </div>
+                            </div>
+                          </div>
+                        </div>                            
+                      </div>
+                    </div>
+                  <br>
+                <% end -%>
+              </div>
+            <div class="body">
+          <div id="real_time_chart" class="dashboard-flot-chart"></div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="col-md-offset-1">
+    <%= will_paginate @properties, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+</div>
+    </section>
+<br><br>
+
+</body>
+
+</html>

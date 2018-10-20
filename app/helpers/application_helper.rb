@@ -8,6 +8,10 @@ module ApplicationHelper
 		Property.where(runner_id: current_runner.id).count
 	end
 
+	def get_properties_true_count
+		Property.show_true.count
+	end
+
 	def page_entries_info(collection, options = {})
 	  entry_name = options[:entry_name] || (collection.empty?? 'Propiedades' :
 	      collection.first.class.name.split('::').last.titleize)
