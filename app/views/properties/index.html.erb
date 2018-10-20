@@ -71,7 +71,7 @@
                                    <img src="https://s3.envato.com/files/248072868/Screenshot/01_preview.jpg">
                                 </div>
                                 <div class="col-md-7">
-                                    <h5>Msexchange contributes senior UX Designer</h5>
+                                    <h5><%= property.title %></h5>
                                     <small>Jopitor Inc., India</small>
                                     <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
                                 </div>
@@ -87,7 +87,7 @@
 
                                   <div class="col-md-3">
                                     <small><b>Pais del Inmueble</b></small><br>
-                                    <small><%= property.country.name %></small>
+                                    <small><%= property.country.name if property.country.name %></small>
                                   </div>
 
                                   <div class="col-md-3">
