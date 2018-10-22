@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_151828) do
+ActiveRecord::Schema.define(version: 2018_10_22_215914) do
+
+  create_table "brunk_tracings", force: :cascade do |t|
+    t.integer "brunk_id"
+    t.integer "runner_id"
+    t.text "comment"
+    t.string "offer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brunks", force: :cascade do |t|
+    t.integer "runner_one"
+    t.integer "runner_two"
+    t.integer "property_one"
+    t.integer "property_two"
+    t.integer "difference_value"
+    t.integer "offer_one"
+    t.integer "offer_two"
+    t.integer "state_one"
+    t.integer "state_two"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -45,6 +68,14 @@ ActiveRecord::Schema.define(version: 2018_10_20_151828) do
     t.integer "parking_lot"
     t.boolean "brunk"
     t.string "brunk_type"
+  end
+
+  create_table "property_images", force: :cascade do |t|
+    t.string "file"
+    t.integer "runner_id"
+    t.integer "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "runners", force: :cascade do |t|
