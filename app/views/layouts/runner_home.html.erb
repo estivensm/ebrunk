@@ -187,6 +187,18 @@
                         <% end -%>
                     </li>
 
+                    <li class="active">
+                        <%= link_to  runner_home_path do %>
+                            <i class="fas fa-home" id="icon_menu"></i><b> Mis Propiedades</b>
+                        <% end -%>
+                    </li>
+
+                    <li>
+                        <%= link_to  pagina_show_path do %>
+                            <i class="fas fa-exchange-alt" id="icon_menu"></i><b> Propiedades para Intercambio</b>
+                        <% end -%>
+                    </li>
+
                     <li>
                         <%= link_to  properties_path do %>
                             <i class="fas fa-building" id="icon_menu"></i><b> Propiedades</b>
@@ -301,7 +313,7 @@
 
             <!-- Widgets -->
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="padding: 0px;">
                     <div class="info-box bg-pink hover-expand-effect">
                         <div class="icon">
                             <i class="fas fa-home"></i>
@@ -324,18 +336,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="padding-right: 0px;">
                     <div class="info-box bg-light-green hover-expand-effect">
                         <div class="icon">
-                            <i class="material-icons">forum</i>
+                            <i class="fas fa-exchange-alt"></i>
                         </div>
                         <div class="content">
-                            <div class="text">NEW COMMENTS</div>
-                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="text">PARA INTERCAMBIO</div>
+                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"><%= get_properties_true_count %></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <!--
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"  style="padding-right: 0px;">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">person_add</i>
@@ -348,7 +362,6 @@
                 </div>
                 -->
             </div>
-
   <body>
     <%= yield %>
   </body>
@@ -366,7 +379,7 @@
 <style>
 
 /* Navbar ====================================== */
-@import url(materialize.css);
+
 .navbar {
   font-family: "Roboto", sans-serif;
   -webkit-border-radius: 0;
