@@ -1,95 +1,136 @@
 <div class="container">
   <div class="row">
-    <h2 align="center">Editar Cuenta</h2>
+    <h2 align="center">Editar Cuenta</h2><br>
+
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
-
-      <div class="col-md-3">
+   <div class="col-md-4 form1">
+    <br>
+      <div class="col-md-0">
          <%= f.label "Nombre" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
            <%= f.text_field :name, autofocus: true, autocomplete: "email", class: "form form-control" %>
         </div>
       </div>
+      <br>
 
-      <div class="col-md-3">
+      <div class="col-md-0">
          <%= f.label "Apellido" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
           <%= f.text_field :apellido, autofocus: true, class: "form form-control" %>
         </div>
       </div>
+      <br>
 
-      <div class="col-md-3">
+      <div class="col-md-0">
          <%= f.label "Edad" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
           <%= f.number_field :age, autofocus: true, class: "form form-control" %>
         </div>
       </div>
+      <br>
 
-      <div class="col-md-4">
+      <div class="col-md-0">
          <%= f.label "Email" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form form-control" %>
         </div>
       </div>
+      <br>
 
-      <div class="col-md-3">
+      <div class="col-md-0">
          <%= f.label "Pais" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
             <%= f.select :country_id,get_country.map { |u| [u.name, u.id] },{ include_blank: false },{ class: 'form form-control'  }%>
         </div>
       </div>
+      <br>
 
 
 
-      <div class="col-md-3">
-        <%= f.label "Opcion de Video llamada" %><br />
-        <%= f.check_box :video_call, autofocus: true, class: "form form-control" %>
-      </div>
+      <div class="col-md-12">
 
-      <div class="col-md-3">
-         <%= f.label "Imagen de Perfil" %>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
-            <%= f.file_field :image, autofocus: true, class: "form form-control" %>
+        <div class="row funkyradio">
+
+          <div class="form-group funkyradio-success">
+            <%= f.check_box :video_call %>
+            <%= f.label "Opcion de Video llamada", for: "runner_video_call", style: "border: 1px solid #cccccc; width: 115%;" %><br />
+          </div>
+
+
         </div>
-      </div>
 
+      </div>
+      <br>
+
+      <div class="col-md-0">
+         <%= f.label "Imagen de Perfil" %>
+         <%= f.file_field :image, autofocus: true %>
+      </div>
+      <br>
 
        <div class="field">
-        <%= f.label "Dirección de Residencia" %><br />
-        <%= f.text_field :address, autofocus: true %>
+        <%= f.label "Dirección de Residencia" %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-map-marker-alt" style = "color: #fff;" ></i></span>
+        <%= f.text_field :address, autofocus: true, class: "form form-control"%>
+        </div>
       </div>
+      <br>
+    </div>
+
+  <div class="col-md-4 form2" >
 
       <div class="field">
-        <%= f.label "Ciudad de Residencia" %><br />
-        <%= f.text_field :city, autofocus: true %>
+        <%= f.label "Ciudad de Residencia" %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-city" style = "color: #fff;" ></i></span>
+              <%= f.text_field :city, autofocus: true, class: "form form-control" %>
+          </div>
       </div>
+      <br>
 
       <div class="field">
-        <%= f.label "Telefono Celular" %><br />
-        <%= f.text_field :mobile, autofocus: true %>
+        <%= f.label "Telefono Celular" %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-mobile-alt" style = "color: #fff;" ></i></span>
+        <%= f.text_field :mobile, autofocus: true, class: "form form-control" %>
+        </div>
       </div>
+      <br>
 
       <div class="field">
-        <%= f.label "Telefono De Residencia" %><br />
-        <%= f.text_field :phone, autofocus: true %>
+        <%= f.label "Telefono De Residencia" %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-phone" style = "color: #fff;" ></i></span>
+        <%= f.text_field :phone, autofocus: true, class: "form form-control" %>
+        </div>
       </div>
+      <br>
 
       <div class="field">
-        <%= f.label "Tipo de Indentificacion" %><br />
-        <%= f.select 'type_of_identification', options_for_select(["Seleccione", "Cedula de Ciudadania ", "Cedula de Extrangeria ", "Pasaporte", "Id"  ]), {},{:class => ''}%>
+        <%= f.label "Tipo de Indentificacion" %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-address-card" style = "color: #fff;" ></i></span>
+        <%= f.select 'type_of_identification', options_for_select(["Seleccione", "Cedula de Ciudadania ", "Cedula de Extrangeria ", "Pasaporte", "Id"  ]), {},{:class => 'form form-control'}%>
+        </div>
       </div>
+      <br>
 
       <div class="field">
-        <%= f.label "Numero de Documento" %><br />
-        <%= f.text_field :number_document, autofocus: true %>
+        <%= f.label "Numero de Documento" %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-address-card" style = "color: #fff;" ></i></span>
+        <%= f.text_field :number_document, autofocus: true, class: "form form-control" %>
+        </div>
       </div>
+      <br>
 
 
 
@@ -98,36 +139,72 @@
       <% end %>
 
       <div class="field">
-        <%= f.label "Contraseña" %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
+        <%= f.label "Contraseña" %> <i>(leave blank if you don't want to change it)</i>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-key" style = "color: #fff;" ></i></span>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form form-control" %>
+        </div>
       </div>
+      <br>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.label :password_confirmation %>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-key" style = "color: #fff;" ></i></span>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form form-control" %>
+        </div>
       </div>
+      <br>
 
       <div class="field">
-        <%= f.label "Contraseña Actual" %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
+        <%= f.label "Contraseña Actual" %> <i>(Necesitas Poner Tu contraseña actual para guardar los cambios )</i>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fas fa-key" style = "color: #fff;" ></i></span>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form form-control" %>
+        </div>
       </div>
+      <br>
 
       <div class="actions">
-        <%= f.submit "Guardar" %>
+        <%= f.submit "Guardar", class: "btn btn-primary" %>
+        <%= link_to "Volver",runner_home_path, class: "btn btn-default" %>
       </div>
 
     <% end %>
+
+    </div>
   </div>
 </div>
 
-
+<!--
 
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+-->
+
+<style type="text/css">
+
+  .form1{
+    box-shadow: 0px 0px 0px gray , 0px 2px 10px gray;
+    margin-left: 130px;
+    border-radius: 4px;
+    padding-bottom: 95px;
+  }
+
+  .form2{
+    box-shadow: 0px 0px 0px gray , 0px 2px 10px gray;
+    margin-left: 100px;
+    padding: 20px;
+    border-radius: 4px;
+  }
+
+  .input-group-addon{
+    background: #4267b2;
+    border-color: #4267b2;
+  }
+
+</style>
