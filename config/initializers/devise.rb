@@ -33,7 +33,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
 
-   config.omniauth :google_oauth2, "497230638456-jj4iuuhiigdi9jcp680o4qt2d5e1vu60.apps.googleusercontent.com", "GJQ7-hjVo6F1qsIEFUJoZb0R",
+   config.omniauth :google_oauth2, ENV['CLIENT_SECRET'], ENV['CLIENT_ID'],
   { access_type: "offline", 
     prompt: "consent",
     select_account: true,
