@@ -38,7 +38,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'fog', '~> 1.38'
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
