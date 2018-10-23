@@ -54,7 +54,7 @@ class Runner < ApplicationRecord
     
     url = URI("https://accounts.google.com/o/oauth2/token")
     net = Net::HTTP.post_form(url, { 'refresh_token' => self.refresh_token,
-      'client_id'     => ENV['CLENT_ID'],
+      'client_id'     => ENV['CLIENT_ID'],
       'client_secret' => ENV['CLIENT_SECRET'],
       'grant_type'    => 'refresh_token'})
 
