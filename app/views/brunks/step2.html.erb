@@ -4,7 +4,7 @@
       <div class="row mb-3">
          <div class="col-md-10 col-md-offset-1">
          
-            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+            <h3 align="center">Mi propiedad para el Brunk</h3><br>
          
                 <div class="card">
                     <div class="card-body">
@@ -61,13 +61,13 @@
       <div class="row mb-3">
          <div class="col-md-10 col-md-offset-1">
          
-            <h1 align="center">Propiedad <br>Solicitada</h1><br>
+            <h3 align="center">Propiedad <br>Solicitada</h3><br>
          
                 <div class="card">
                     <div class="card-body">
                         <div class="row" style="padding: 9px;">
 
-                            <div class="col-md-12" style="padding-bottom:20px; text-align: center">
+                            <div class="col-md-12 img-property" style="padding-bottom:20px; text-align: center">
                                 
                                 <%= @property1.images? ? image_tag(@property1.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
                             </div>
@@ -154,7 +154,7 @@
 
 
 <style>
-  img{
+ .img-property  img{
     width: 250px !important;
     height: 150px;	
 

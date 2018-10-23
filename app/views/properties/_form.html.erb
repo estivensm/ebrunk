@@ -1,6 +1,5 @@
 
-<div class="row" style="background: #fff; border-radius: 4px;">
-  <div class="col-md-8 col-md-offset-2" style="background: #efefef">
+
     <%= nested_form_for(@property, local: true) do |form| %>
       <% if property.errors.any? %>
         <div id="error_explanation">
@@ -288,11 +287,11 @@
 
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 text-center">
       <br>
       <div class="actions">
-        <%= form.submit "Publicar Aviso", class: "btn1"%>
-        <%= button_to "Volver", properties_path ,class: "btn1" %>
+        <%= form.submit "Publicar Aviso", class: "btn1 btn-lg"%>
+        <%= button_to "Volver", properties_path ,class: "btn1 btn-lg" %>
       </div>
       <br>
     </div>
@@ -313,12 +312,11 @@
     </div>
     -->
         
-      </div>
-    </div>
-  </div>
+      
+  
   <% end %>
-</div>
-</dir>
+
+
 <script>
   $('.rp').change(function(){
 

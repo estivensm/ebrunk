@@ -1,50 +1,58 @@
+
+
+
+
+
+
+
 <div class="row" style="background: #fff; border-radius: 4px;">
  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="col-md-12">
+     <div class="col-md-5">
       <div class="row mb-3">
-         <div class="col-md-10 col-md-offset-1">
+         <div class="col-md-12">
          
-            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+            <h3 align="center">Mi propiedad para el Brunk</h3><br>
          
                 <div class="card">
                     <div class="card-body">
                         <div class="row" style="padding: 9px;">
 
-                            <div class="col-md-3" style="padding: ">
+                            <div class="col-md-12" style="padding-bottom:20px;; text-align: center ">
                                 
-                                <%= @property.images? ? image_tag(@property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
+                                <%= @property.images? ? image_tag(@property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
                             </div>
 
-                            <div class="col-md-7" style="text-align: center;">
+                            <div class="col-md-12" style="text-align: center;">
                                 <h5 style="margin-top: -1px;"><%= @property.title%></h5>
                                 <small>Jopitor Inc., India</small>
                                 <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
                             </div>
 
-                            <div class="col-md-2" style="padding-left: 0px;">
-                                <%= link_to 'Ver Propiedad', @property, class: "btn2" %>
-                            </div>
+                            
 
                               <div class="col-md-12">
                                 <div class="row" style="padding-left: 10px;">
-                                  <div class="col-md-3">
+                                  <div class="col-md-12">
                                     <small><b>Estado del Inmueble</b></small><br>
                                     <small><%= @property.state %></small>
                                   </div>
 
-                                  <div class="col-md-3">
+                                  <div class="col-md-12">
                                     <small><b>Pais del Inmueble</b></small><br>
                                     <small><%= @property.country.name if  @property %></small>
                                   </div>
 
-                                  <div class="col-md-3" style="padding-right: 27px; font-size: 25px;">
+                                  <div class="col-md-12" style="padding-right: 27px; font-size: 25px;">
                                  
                                   </div>
 
-                                   <div class="col-md-3" style="    padding-right: 27px;float: right; font-size: 25px;">
+                                   <div class="col-md-12" style="    padding-right: 27px;float: right; font-size: 25px;">
                                     <small><b>Precio</b></small><br>
                                     <small><%= number_to_currency(@property.prince, precision: 0) %></small>
                                   </div>
+                                  <div class="col-md-12" style="padding-left: 0px">
+                                <%= link_to 'Ver Propiedad', @property, class: "btn2", style: "float: right;" %>
+                            </div>
                             </div>
                           </div>
                         </div>                            
@@ -56,94 +64,95 @@
           
       </div>
     </div>
-</div>
-</div>
 
-<div class="row" style="background: #fff; border-radius: 4px;">
- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <div class="row mb-3">
-         <div class="col-md-10 col-md-offset-1">
-            <h1 align="center">Propiedades Para Intercambio </h1><br>
+         <div class="col-md-12">
+            <h3 align="center">Propiedades Para Intercambio </h3><br>
              <% @properties.each do |property| %>
-                <div class="card">
+                       <div class="card">
                     <div class="card-body">
                         <div class="row" style="padding: 9px;">
 
-                            <div class="col-md-3">
-                                <img src="https://s3.envato.com/files/248072868/Screenshot/01_preview.jpg" height="86">
+                            <div class="col-md-3" style="padding-bottom:20px;">
+                                
+                                <%= @property.images? ? image_tag(@property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
                             </div>
 
-                            <div class="col-md-6" style="text-align: center;">
-                                <h5 style="margin-top: -1px;"><%= property.title%></h5>
-                                <small>Jopitor Inc., India</small>
-                                <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
+                            <div class="col-md-9 info" style="">
+                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property.city%> - <%= @property.country.name%></h5>
+                                <small> <%= @property.area%>,00 m2</small>
+                              <small><%= @property.number_bedrooms%> hab</small>
+                              <small>strato <%= @property.stratum%></small>
                             </div>
 
-                            <div class="col-md-3" style="padding-left: 0px;">
-                                <%= link_to 'Ver Propiedad', property, class: "btn2" %>
-                                <%= link_to 'Brunk', step2_path(@property.id, property.id), class: "btn2" %>
-                               
-                            </div>
+                            
 
                               <div class="col-md-12">
                                 <div class="row" style="padding-left: 10px;">
-                                  <div class="col-md-3">
-                                    <small><b>Estado del Inmueble</b></small><br>
-                                    <small><%= property.state %></small>
-                                  </div>
-
-                                  <div class="col-md-3">
-                                    <small><b>Pais del Inmueble</b></small><br>
-                                    <small><%= property.country.name if  property %></small>
-                                  </div>
-
-                                  <div class="col-md-3" style="    padding-right: 27px; font-size: 25px;">
+                                  
+                              <div class="col-md-4" style="padding-left: 0px">
+                                <%= link_to 'Ver Propiedad', @property, class: "btn2"%>
+                                <%= link_to 'Brunk', step2_path(@property.id, property.id), class: "btn2" %>
+                            </div>
+                                     <div class="col-md-3" style="    padding-right: 27px; font-size: 20px;">
                                      <small><b>Precio</b></small><br>
                                     <small><%= number_to_currency(property.prince, precision: 0) %></small>
                                   </div>
                                    <%if (property.prince - @property.prince) > 0 %>
-                                  <div class="col-md-3 text-right" style="    padding-right: 27px;float: right; font-size: 25px;color: red;">
+                                  <div class="col-md-3 text-right" style="    padding-right: 27px;float: right; font-size: 20x;color: red;">
                                  
                                 
                                    <small><b>Debes dar</b></small><br>
                                     <small><%= number_to_currency((property.prince - @property.prince ), precision: 0) %></small>
                                   <%else%>
-                                  <div class="col-md-3 text-right" style="    padding-right: 27px;float: right; font-size: 25px;color: green;">
-                                  		<small><b>Te deben dar</b></small><br>
+                                  <div class="col-md-5 text-right" style="    padding-right: 27px;font-size: 20px;color: green;">
+                                      <small><b>Te deben dar</b></small><br>
                                     <small><%= number_to_currency(( @property.prince - property.prince), precision: 0) %></small>
                                   <%end%>
                                     
                                   </div>
+                                  
                             </div>
                           </div>
                         </div>                            
                       </div>
                     </div>
-                  <br>
                 <% end -%>
               </div>
-            <div class="body">
-          <div id="real_time_chart" class="dashboard-flot-chart"></div>
-        </div>
+           
       </div>
     </div>
-</div>
-<div class="col-md-offset-1">
-    <%= will_paginate @properties, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
-</div>
-    </section>
-<br><br>
+  </div>
 
-</body>
+</div>
+</div>
 
-</html>
 
 
 
 <style>
+
+
+  .alert-success, .alert-danger
+{
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
   img{
-    width: 120px !important;
+    width: 100px !important;
+    height: 60px; 
 
   }
+  .info small
+  {
+        background: #e3e3e3;
+    padding: 4px;
+    margin-right: 10px;
+  }
+ .card
+ {
+  margin-bottom: 0px !important;
+ } 
 </style>

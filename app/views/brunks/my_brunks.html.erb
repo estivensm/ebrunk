@@ -4,14 +4,15 @@
    <% @property1 = Property.find(brunk.property_two_id)%>
 
 <div class="row" style="background: #fff; border-radius: 4px;">
-   <p> <%=link_to "Gestion Cambio" ,show_path(brunk.id), class: "btn btn-primary" %></p>
+   <p style="text-align: right;"> <%=link_to "Gestion Cambio" ,show_path(brunk.id), class: "btn btn-primary" %></p>
+ 
  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
     <div class="col-md-6">
       <div class="row mb-3">
          <div class="col-md-12">
          
-            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+            <h3 align="center">Propiedad que Ofreces</h3><br>
          
                 <div class="card">
                     <div class="card-body">
@@ -47,7 +48,7 @@
                         </div>                            
                       </div>
                     </div>
-                  <br>
+               
    
               </div>
           
@@ -57,7 +58,7 @@
       <div class="row mb-3">
          <div class="col-md-12">
          
-            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+            <h3 align="center">Propiedad que Quieres</h3><br>
          
                 <div class="card">
                     <div class="card-body">
@@ -93,13 +94,33 @@
                         </div>                            
                       </div>
                     </div>
-                  <br>
+               
    
               </div>
           
       </div>
     </div>
+  <div class="col-md-6 col-md-offset-3">
+         <%if (@property1.prince - @property.prince) > 0 %>
+                    
+                              <div class="alert alert-danger">
+                                   <small><b>Debes dar</b></small>
+                                    <small><%= number_to_currency((@property1.prince - @property.prince ), precision: 0) %></small>
 
+                              </div>    
+                               
+                                  
+                                  
+                                  <%else%>
+                        <div class="alert alert-success">
+                                      <small><b>Te deben dar</b></small>
+                                    <small><%= number_to_currency(( @property.prince - @property1.prince), precision: 0) %></small>
+                           </div> 
+        <%end%>
+
+
+    
+ </div>  
 </div>
 
 </div>
@@ -108,6 +129,12 @@
 
 
 <style>
+.alert-success, .alert-danger
+{
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
   img{
     width: 100px !important;
     height: 60px;	
@@ -119,5 +146,9 @@
     padding: 4px;
     margin-right: 10px;
   }
+ .card
+ {
+  margin-bottom: 0px !important;
+ } 
 </style>
 
