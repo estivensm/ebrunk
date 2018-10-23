@@ -13,7 +13,7 @@
           </ul>
         </div>
       <% end %>
-
+    <br>
     <div class="col-md-12" id="contenido-title">
       <h4><i class="fas fa-home"></i> DATOS DEL AVISO</h4>
     </div>
@@ -204,7 +204,7 @@
 
       <div class="col-md-12"  style="margin-left: 12px;">
           <div class="row funkyradio">
-             <div class="col-md-2">
+             <div class="col-md-2" style="padding-left: 0px;">
               <div class="form-group funkyradio-success">
                 <%= form.radio_button :brunk, true , id: "radio3", class: "rv" %>
                 <%= form.label "Si", for: "radio3"%>
@@ -294,6 +294,7 @@
         <%= form.submit "Publicar Aviso", class: "btn1"%>
         <%= button_to "Volver", properties_path ,class: "btn1" %>
       </div>
+      <br>
     </div>
 
     <!--

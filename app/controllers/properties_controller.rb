@@ -3,18 +3,23 @@ class PropertiesController < ApplicationController
   before_action :authenticate_runner!, :except => [:index, :show]
   # GET /properties
   # GET /properties.json
+  layout 'runner_home', :only => :new
   def index
+
     if params[:search] || params[:search2] || params[:search3]
     @properties = Property.all.search(params[:search],params[:search2], params[:search3]).paginate(:page => params[:page], :per_page => 4)
 
     else
     @properties = Property.all.paginate(:page => params[:page], :per_page => 4)
     end
+
+    render :layout => "runners"
   end
 
   # GET /properties/1
   # GET /properties/1.json
   def show
+    render :layout => "runners"
   end
 
   # GET /properties/new
@@ -42,7 +47,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
+        format.html { redirect_to runner_home_path, notice: 'Property was successfully created.' }
         format.json { render :show, status: :created, location: @property }
       else
         format.html { render :new }
