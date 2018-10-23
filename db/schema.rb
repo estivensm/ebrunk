@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_210752) do
+ActiveRecord::Schema.define(version: 2018_10_23_214759) do
 
   create_table "brunk_tracings", force: :cascade do |t|
     t.integer "brunk_id"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_210752) do
     t.string "uid"
     t.string "token"
     t.datetime "expires_at"
+    t.string "expires_ats"
     t.index ["email"], name: "index_runners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_runners_on_reset_password_token", unique: true
   end

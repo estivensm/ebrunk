@@ -28,7 +28,7 @@ class Runner < ApplicationRecord
         runner.password = "alejo0906"
       end
       runner.token = auth.credentials.token
-      runner.expires_at = auth.credentials.expires_at
+     
       runner.expires_ats = auth.credentials.expires_at
       runner.refresh_token = auth.credentials.refresh_token
       runner.save
@@ -74,7 +74,7 @@ end
 def token_expired?
   expiry = Time.at(self.expires_ats.to_i) 
   return true if expiry < Time.now # expired token, so we should quickly return
-  token_expires_at = expiry
+  token_expires_ats = expiry
   save if changed?
   false # token not expired. :D
 end
