@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   #
   resources :properties
   resources :countries
-  devise_for :runners
+  devise_for :runners , :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'welcome#index'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_152617) do
+ActiveRecord::Schema.define(version: 2018_10_23_210752) do
 
   create_table "brunk_tracings", force: :cascade do |t|
     t.integer "brunk_id"
@@ -104,6 +104,12 @@ ActiveRecord::Schema.define(version: 2018_10_23_152617) do
     t.boolean "video_call"
     t.string "name"
     t.string "apellido"
+    t.string "provider"
+    t.string "acces_token"
+    t.string "refresh_token"
+    t.string "uid"
+    t.string "token"
+    t.datetime "expires_at"
     t.index ["email"], name: "index_runners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_runners_on_reset_password_token", unique: true
   end
