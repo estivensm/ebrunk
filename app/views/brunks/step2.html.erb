@@ -165,10 +165,21 @@
 
 
 $('#solicitud').on("click", function(){
-    $.post( "/brunks/create_brunk",   { id: 1, ids: 2 } ) 
-        .done(function( data ) {
-            console.log( "Data Loaded: " );
-                               });
+
+$.ajax({ url: '/brunks/create_brunk',
+  type: 'POST',
+  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+  data: {
+
+       idprone: <%=@property.id%>, 
+       idprtwo: <%=@property1.id%>, 
+       idrunnerone: <%=@property.runner_id%>, 
+       idrunnertwo: <%=@property1.runner_id%> 
+     } ,
+  success: function(response) {
+    console.log("holoaaaaaaaaaaaa")
+  }
+});
 
  
 });

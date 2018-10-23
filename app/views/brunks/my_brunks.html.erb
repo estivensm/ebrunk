@@ -1,2 +1,123 @@
-<h1>Brunks#my_brunks</h1>
-<p>Find me in app/views/brunks/my_brunks.html.erb</p>
+
+   <% @brunks.each do |brunk| %>
+   <% @property = Property.find(brunk.property_one_id)%>
+   <% @property1 = Property.find(brunk.property_two_id)%>
+
+<div class="row" style="background: #fff; border-radius: 4px;">
+   <p> <%=link_to "Gestion Cambio" ,show_path(brunk.id), class: "btn btn-primary" %></p>
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <div class="col-md-6">
+      <div class="row mb-3">
+         <div class="col-md-12">
+         
+            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+         
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row" style="padding: 9px;">
+
+                            <div class="col-md-3" style="padding-bottom:20px;">
+                                
+                                <%= @property.images? ? image_tag(@property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
+                            </div>
+
+                            <div class="col-md-9 info" style="">
+                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property.city%> - <%= @property.country.name%></h5>
+                                <small> <%= @property.area%>,00 m2</small>
+                              <small><%= @property.number_bedrooms%> hab</small>
+                              <small>strato <%= @property.stratum%></small>
+                            </div>
+
+                            
+
+                              <div class="col-md-12">
+                                <div class="row" style="padding-left: 10px;">
+                                  
+                              <div class="col-md-4" style="padding-left: 0px">
+                                <%= link_to 'Ver Propiedad', @property, class: "btn2"%>
+                            </div>
+                                   <div class="col-md-8" style="    padding-right: 27px; font-size: 25px;text-align: right;">
+                                    <small><b>Precio</b></small>:
+                                    <small><%= number_to_currency(@property.prince, precision: 0) %></small>
+                                  </div>
+                                  
+                            </div>
+                          </div>
+                        </div>                            
+                      </div>
+                    </div>
+                  <br>
+   
+              </div>
+          
+      </div>
+    </div>
+     <div class="col-md-6">
+      <div class="row mb-3">
+         <div class="col-md-12">
+         
+            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+         
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row" style="padding: 9px;">
+
+                            <div class="col-md-3" style="padding-bottom:20px;">
+                                
+                                <%= @property1.images? ? image_tag(@property1.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
+                            </div>
+
+                            <div class="col-md-9 info" style="">
+                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property1.city%> - <%= @property1.country.name%></h5>
+                                <small> <%= @property1.area%>,00 m2</small>
+                              <small><%= @property1.number_bedrooms%> hab</small>
+                              <small>strato <%= @property1.stratum%></small>
+                            </div>
+
+                            
+
+                              <div class="col-md-12">
+                                <div class="row" style="padding-left: 10px;">
+                                  
+                              <div class="col-md-4" style="padding-left: 0px">
+                                <%= link_to 'Ver Propiedad', @property1, class: "btn2"%>
+                            </div>
+                                   <div class="col-md-8" style="    padding-right: 27px; font-size: 25px;text-align: right;">
+                                    <small><b>Precio</b></small>:
+                                    <small><%= number_to_currency(@property1.prince, precision: 0) %></small>
+                                  </div>
+                                  
+                            </div>
+                          </div>
+                        </div>                            
+                      </div>
+                    </div>
+                  <br>
+   
+              </div>
+          
+      </div>
+    </div>
+
+</div>
+
+</div>
+
+<%end%>
+
+
+<style>
+  img{
+    width: 100px !important;
+    height: 60px;	
+
+  }
+  .info small
+  {
+        background: #e3e3e3;
+    padding: 4px;
+    margin-right: 10px;
+  }
+</style>
+

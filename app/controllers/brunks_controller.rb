@@ -10,19 +10,32 @@ layout 'runner_home'
   def step2
      @property = Property.find(params[:id1])
      @property1 = Property.find(params[:id2])
+     cookies[:property]   = @property.id 
+     cookies[:property1] = @property1.id
+
   end
 
   def my_brunks
+
+    @brunks = current_runner.brunks
+
   end
 
   def show
+    @brunk = Brunk.find(params[:id])
   end
 
   def brunks_required
+
+     @brunks = current_runner.brunks_one
+
   end
 
 
   def create_brunk
-    puts "holaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+     
+     Brunk.create(runner_one_id: params[:idrunnerone], runner_two_id: params[:idrunnertwo], property_one_id: params[:idprone], property_two_id: params[:idprtwo])
+
   end
 end
+  

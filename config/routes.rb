@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   #brunk routes
   get 'brunks/step1/:id' , to: 'brunks#step1', as: 'step1'
   get 'brunks/step2/:id1/:id2' , to: 'brunks#step2', as: 'step2'
-  get 'brunks/my_brunks'
-  get 'brunks/show'
-  get 'brunks/brunks_required'
+  get 'brunks/my_brunks', to: 'brunks#my_brunks', as: 'my_brunks'
+  get 'brunks/show/:id', to: 'brunks#show', as: 'show'
+  get 'brunks/brunks_required', to: 'brunks#brunks_required', as: 'brunks_required'
 
   post 'brunks/create_brunk', to: 'brunks#create_brunk', as: 'create_brunk'
 

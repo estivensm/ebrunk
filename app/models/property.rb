@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
     belongs_to :runner
+    has_many :runners_one_id
     belongs_to :country, optional: true
     
     has_many :property_images, inverse_of: :property, dependent: :destroy

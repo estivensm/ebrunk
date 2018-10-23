@@ -210,7 +210,16 @@
                             <i class="fas fa-building" id="icon_menu"></i><b> Nueva Propiedad</b>
                         <% end -%>
                     </li>
-
+                    <li>
+                        <%= link_to  my_brunks_path do %>
+                            <i class="fas fa-user" id="icon_menu"></i><b>Brunk Solicitados</b>
+                        <% end -%>
+                    </li>
+                       <li>
+                        <%= link_to  brunks_required_path do %>
+                            <i class="fas fa-user" id="icon_menu"></i><b>Solicitudes de Brunk</b>
+                        <% end -%>
+                    </li>
                     <li>
                         <%= link_to  edit_runner_registration_path do %>
                             <i class="fas fa-user" id="icon_menu"></i><b> Editar Cuenta</b>
