@@ -1,0 +1,29 @@
+<div class="container-fluid" id="buscador">
+
+	<%= form_tag properties_path, :method => 'get' do%>
+
+        <div class="col-md-3" style="margin-left: 10%;">
+          <%= select_tag 'search2', options_for_select(get_country.collect{ |u| ["#{u.name}", u.id, ] }),{:class => "form-control sh4", include_blank: true, :prompt => 'Seleciona Un Pais' }%>
+        </div>
+
+        <div class="col-md-3">
+          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Ciudad", class: "form form-control"%>
+        </div>
+
+        <div class="col-md-3">
+
+          <%= select_tag 'search3', options_for_select(["Apartamento", "Casa", "Finca", "Parqueadero","Oficina", "Local", "Bodega", "Lote","Habitacion", "Consultorio", "Edificio", "Cabaña","Casa Campestre", "Aparta Estudio", "Casa Lote"]),{:class => 'form form-control select' , :prompt => 'Tipo de Inmueble'}%>
+        </div>
+
+
+        <div class="col-md-2" style=" padding: 0px; width: 99px;">
+
+          <%= button_tag class: "btn btn-primary sh3", :title => "Buscar Registros", id: "btn3" do %>
+          <i class="fas fa-search" style=""></i> Buscar
+          <% end -%>
+
+        </div>
+
+      <% end -%>
+
+</div>
