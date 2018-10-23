@@ -1,5 +1,5 @@
 <div class="row" style="background: #fff; border-radius: 4px;">
-    <%= form_with(model: property, local: true) do |form| %>
+    <%= nested_form_for(@property, local: true) do |form| %>
       <% if property.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -35,7 +35,7 @@
           <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
             <%val2 = "" 
                         action_name == "edit" ? val2 = @properties.type_of_offer : val2 = "" %>
-             <%= form.select 'type_of_offer', options_for_select(["Seleccione", "Venta", "Arriendo", "Alquiler Vacacional"], val2), {},{:class => 'form form-control select'}%>
+             <%= form.select 'type_of_offer', options_for_select(["Venta", "Arriendo", "Alquiler Vacacional"], val2), {},{:class => 'form form-control select', :prompt => 'Tipo de oferta'}%>
         </div>
       </div>
 
@@ -47,7 +47,7 @@
                         action_name == "edit" ? val1 = @properties.type_of_offer : val1 = "" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
-           <%= form.select 'property_type', options_for_select(["Seleccione Tipo de Inmueble","Apartamento", "Casa", "Finca", "Parqueadero","Oficina", "Local", "Bodega", "Lote","Habitacion", "Consultorio", "Edificio", "Cabaña","Casa Campestre", "Aparta Estudio", "Casa Lote"], val1), {},{:class => 'form form-control select'}%>
+           <%= form.select 'property_type', options_for_select(["Apartamento", "Casa", "Finca", "Parqueadero","Oficina", "Local", "Bodega", "Lote","Habitacion", "Consultorio", "Edificio", "Cabaña","Casa Campestre", "Aparta Estudio", "Casa Lote"], val1), {},{:class => 'form form-control select'}%>
         </div>
         <br>
       </div>
@@ -160,7 +160,7 @@
                         action_name == "edit" ? val5 = @properties.number_bedrooms : val5 = "" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
-            <%= form.select 'number_bedrooms', options_for_select(["Seleccione las Habitaciones","1", "2", "3", "4","5", "6", "7", "8","9", "10", "11", "12","13", "14", "15", "16","17", "18", "19", "20"], val5), {},{:class => 'form form-control select'}%>
+            <%= form.select 'number_bedrooms', options_for_select(["1", "2", "3", "4","5", "6", "7", "8","9", "10", "11", "12","13", "14", "15", "16","17", "18", "19", "20"], val5), {},{:class => 'form form-control select'}%>
         </div>
       </div>
       <br><br><br><br>
@@ -170,7 +170,7 @@
                       action_name == "edit" ? val4 = @properties.number_bathrooms : val4 = "" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
-           <%= form.select 'number_bathrooms', options_for_select(["Seleccione Numero de Baños","1", "2", "3", "4","5", "6", "7", "8","9", "10"], val4), {},{:class => 'form form-control select'}%>
+           <%= form.select 'number_bathrooms', options_for_select(["1", "2", "3", "4","5", "6", "7", "8","9", "10"], val4), {},{:class => 'form form-control select'}%>
         </div>
       </div>
       <br><br><br><br>
@@ -180,7 +180,7 @@
                       action_name == "edit" ? val7 = @properties.levels : val7 = "" %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fas fa-user" style = "color: #fff;" ></i></span>
-            <%= form.select 'levels', options_for_select(["Seleccione Numero de Niveles","1", "2", "3", "4","5", "6", "7", "8","9", "10"], val7), {},{:class => 'form form-control select'}%>
+            <%= form.select 'levels', options_for_select(["1", "2", "3", "4","5", "6", "7", "8","9", "10"], val7), {},{:class => 'form form-control select'}%>
         </div>
       </div>
 
@@ -197,26 +197,36 @@
       </div>
 
       <div class="col-md-12" id="contenido-title">
-        <h4><i class="fas fa-home"></i> Te gustaria que tu inmueble sea para intercambio?</h4>
+        <h4><i class="fas fa-home"></i> Te gustaria que tu inmueble sirva para intercambio?</h4>
       </div>
 
-      <div class="col-md-4"  style="margin-left: 12px;">
+      <div class="col-md-12"  style="margin-left: 12px;">
           <div class="row funkyradio">
 
-            <div class="form-group funkyradio-success">
-              <%= form.check_box :brunk, id: "radio3" %>
-              <%= form.label "Si", for: "radio3"%>
+            <div class="col-md-2"  style="padding-left: 0px;">
+              <div class="form-group funkyradio-success">
+                <%= form.check_box :brunk,  id: "radio4", class: "rv", value: false %>
+                <%= form.label "Si", for: "radio4"%>
+              </div>
+            </div>
+
+
+            <div class="col-md-2">
+              <div class="form-group funkyradio-success">
+                <%= form.check_box :brunk, id: "radio3", class: "rp" , value: true %>
+                <%= form.label "No", for: "radio3"%>
+              </div>
             </div>
 
           </div>
       </div>
 
       <br><br><br><br>
-      <div class="col-md-12" id="contenido-title">
+      <div class="col-md-12 cambio_title" id="contenido-title" style="display: none;">
         <h4><i class="fas fa-home"></i> titulo a definir</h4>
       </div>
 
-      <div class="col-md-4" style="margin-left: 12px;">
+      <div class="col-md-4 cambio" style="margin-left: 12px; display: none;">
         <div class="row funkyradio">
 
             <div class="form-group funkyradio-success">
@@ -246,9 +256,32 @@
 
       <div class="col-md-3">
         <div class="field">
-          <%= form.label :images %><br>
+          <%= form.label "Imagen Principal" %><br>
           <%= form.file_field :images , class: "form form-control"%>
         </div>
+      </div>
+      <br><br><br><br>
+
+      <%= form.fields_for :property_images do |images|  %>
+       <div class="col-md-12" style="padding-left: 0px;">  
+          <div class="col-md-5" style="padding-left: 0px;">
+            <h5>Sub Imagenes</h5>
+            <div class="input-group">
+              <span class="input-group-btn">
+               <%= images.link_to_remove class: "btn btn-danger" do %>
+                 <i class="fa fa-trash" aria-hidden="true"></i>
+               <% end %>
+              </span>
+               <%= images.file_field :file, :class => 'form-control' %>
+             </div>
+             <br>
+          </div>
+            <%= images.hidden_field :runner_id ,:value =>  current_runner.id %>   
+        </div> 
+      <% end %>
+
+      <div class="col-md-12" style="margin-top: 10px;">
+          <%= form.link_to_add "Agregar Imagen", :property_images, :class => 'btn btn-primary', style: "margin-top: 5px !important "  %>
       </div>
 
     </div>
@@ -276,7 +309,8 @@
       </div>
     </div>
     -->
-    <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -288,6 +322,9 @@
     {
             $('.rv').prop('checked', false);
             $('.rp').prop('checked', true);
+
+            $(".cambio").fadeOut(300)
+            $(".cambio_title").fadeOut(300)  
             
      
             
@@ -300,12 +337,17 @@
     {
             $('.rp').prop('checked', false);
             $('.rv').prop('checked', true);
+
+            $(".cambio").fadeIn(300) 
+            $(".cambio_title").fadeIn(300) 
+      
+
             
      
             
        }
        
-});
+    });
 
 </script>
 
@@ -338,6 +380,10 @@
     border-radius: 3px;
     border: 1px solid #D1D3D4;
     font-weight: normal;
+  }
+
+  .funkyradio div{
+    clear: none;
   }
 
   

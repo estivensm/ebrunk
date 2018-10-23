@@ -1,0 +1,2 @@
+class BrunkTracing < ApplicationRecord
+end

@@ -42,18 +42,16 @@
 
                                   <div class="col-md-3 text-right" style="padding-right: 27px; float: right;">
 
-                    <%= link_to  edit_property_path(property) do%>
-                        <i class="fas fa-pencil-alt" style = "font-size:20px;" aria-hidden="true"></i>
-                    <% end -%>
-                                  <%= link_to  property, method: :delete, data: {
-                                       confirm: '¿Estas Seguro?',
-                                       'confirm-button-text': 'Borrar',
-                                       'cancel-button-text': 'Cancelar',
-                                       'confirm-button-color': '#CC0000',
-                                        text: 'Recuerda que el registro se borrara permanentemente',
-                                       'image-url': ''} do%>
-                                    <i class="fas fa-trash-alt" style = "font-size:20px; color: red;" aria-hidden="true"></i>
-                                <% end -%>    
+                                    <%= link_to cambios_path(property.id),remote: true, method: :post do %>   
+                                  <% if property.state_favorite == true %>
+                                    <span id="hola<%= property.id %>" class="glyphicon glyphicon-heart" style = "font-size:30px;color:red"></span>
+                                   
+                                    <% else%>
+                                   
+                                    <span id="hola<%= property.id %>" class="glyphicon glyphicon-heart" style = "font-size:30px;color:gray"></span>
+
+                                  <% end -%>
+                                  <% end -%>  
                                   </div>
                             </div>
                           </div>

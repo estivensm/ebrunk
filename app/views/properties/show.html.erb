@@ -55,12 +55,12 @@
                             <div role="tabpanel" class="tab-pane fade in active" id="Section1">
                                 <div class="carousel"
                                   data-flickity='{ "autoPlay": true}'>
-                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
-                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
-                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+                                    <% @property.property_images.each do |image|%>
+
+                                      <%= image.file? ? image_tag(image.file_url(:large)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ", style: "height: 104px;")%>
+                                    <% end -%>
+
+                              
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="Section2">
@@ -155,7 +155,7 @@
     </div>
   </div>
 
-  <% @property.brunk_type %>
+
 
 <style>
 
