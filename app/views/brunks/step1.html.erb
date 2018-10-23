@@ -80,7 +80,7 @@
                             </div>
 
                             <div class="col-md-9 info" style="">
-                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property.city%> - <%= @property.country.name%></h5>
+                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property.city%> - <%= @property.country.name if  @property.country%></h5>
                                 <small> <%= @property.area%>,00 m2</small>
                               <small><%= @property.number_bedrooms%> hab</small>
                               <small>strato <%= @property.stratum%></small>
