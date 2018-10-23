@@ -26,24 +26,24 @@ class Runner < ApplicationRecord
         runner.uid = auth.uid
         runner.email = auth.info.email
         runner.password = "alejo0906"
-      end
+    end
+
       runner.token = auth.credentials.token
-     
       runner.expires_ats = auth.credentials.expires_at
       runner.refresh_token = auth.credentials.refresh_token
       runner.save
       return runner
     else
 
-       #Runner = Runner.new do |Runner|
-        #Runner.provider = auth.provider
-       # Runner.uid = auth.uid
-       # Runner.email = auth.info.email
-        #Runner.password = "alejo0906"
-      #end
-      #Runner.token = auth.credentials.token
-      #Runner.refresh_token = auth.credentials.refresh_token
-     # Runner.save
+       runner = Runner.new do |runner|
+       runner.provider = auth.provider
+       runner.uid = auth.uid
+       runner.email = auth.info.email
+       runner.password = "alejo0906"
+      end
+      runner.token = auth.credentials.token
+      runner.refresh_token = auth.credentials.refresh_token
+      runner.save
       return nil
     end
   end
