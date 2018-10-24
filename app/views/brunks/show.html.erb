@@ -7,53 +7,9 @@
       <div class="row mb-3">
          <div class="col-md-10 col-md-offset-1">
          
-            <h1 align="center">Mi propiedad para el Brunk</h1><br>
+            <h3 align="center">Mi propiedad para el Brunk</h3><br>
          
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row" style="padding: 9px;">
-
-                            <div class="col-md-12" style="padding-bottom:20px;; text-align: center ">
-                                
-                                <%= @property.images? ? image_tag(@property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
-                            </div>
-
-                            <div class="col-md-12" style="text-align: center;">
-                                <h5 style="margin-top: -1px;"><%= @property.title%></h5>
-                                <small>Jopitor Inc., India</small>
-                                <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
-                            </div>
-
-                            
-
-                              <div class="col-md-12">
-                                <div class="row" style="padding-left: 10px;">
-                                  <div class="col-md-12">
-                                    <small><b>Estado del Inmueble</b></small><br>
-                                    <small><%= @property.state %></small>
-                                  </div>
-
-                                  <div class="col-md-12">
-                                    <small><b>Pais del Inmueble</b></small><br>
-                                    <small><%= @property.country.name if  @property %></small>
-                                  </div>
-
-                                  <div class="col-md-12" style="padding-right: 27px; font-size: 25px;">
-                                 
-                                  </div>
-
-                                   <div class="col-md-12" style="    padding-right: 27px;float: right; font-size: 25px;">
-                                    <small><b>Precio</b></small><br>
-                                    <small><%= number_to_currency(@property.prince, precision: 0) %></small>
-                                  </div>
-                                  <div class="col-md-12" style="padding-left: 0px">
-                                <%= link_to 'Ver Propiedad', @property, class: "btn2", style: "float: right;" %>
-                            </div>
-                            </div>
-                          </div>
-                        </div>                            
-                      </div>
-                    </div>
+             <%=render 'property_card' , property: @property %>
                   <br>
    
               </div>
@@ -64,53 +20,9 @@
       <div class="row mb-3">
          <div class="col-md-10 col-md-offset-1">
          
-            <h1 align="center">Propiedad <br>Solicitada</h1><br>
+            <h3 align="center">Propiedad Solicitada</h3><br>
          
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row" style="padding: 9px;">
-
-                            <div class="col-md-12" style="padding-bottom:20px; text-align: center">
-                                
-                                <%= @property1.images? ? image_tag(@property1.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
-                            </div>
-
-                            <div class="col-md-12" style="text-align: center;">
-                                <h5 style="margin-top: -1px;"><%= @property1.title%></h5>
-                                <small>Jopitor Inc., India</small>
-                                <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
-                            </div>
-
-                            
-
-                              <div class="col-md-12">
-                                <div class="row" style="padding-left: 10px;">
-                                  <div class="col-md-12">
-                                    <small><b>Estado del Inmueble</b></small><br>
-                                    <small><%= @property1.state %></small>
-                                  </div>
-
-                                  <div class="col-md-12">
-                                    <small><b>Pais del Inmueble</b></small><br>
-                                    <small><%= @property1.country.name if  @property1 %></small>
-                                  </div>
-
-                                  <div class="col-md-12" style="padding-right: 27px; font-size: 25px;">
-                                 
-                                  </div>
-
-                                   <div class="col-md-12" style="    padding-right: 27px;float: right; font-size: 25px;">
-                                    <small><b>Precio</b></small><br>
-                                    <small><%= number_to_currency(@property1.prince, precision: 0) %></small>
-                                  </div>
-                                  <div class="col-md-12" style="padding-left: 0px">
-                                <%= link_to 'Ver Propiedad', @property1, class: "btn2", style: "float: right;" %>
-                            </div>
-                            </div>
-                          </div>
-                        </div>                            
-                      </div>
-                    </div>
+             <%=render 'property_card' , property: @property1  %>
                   <br>
    
               </div>

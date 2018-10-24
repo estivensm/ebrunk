@@ -1,0 +1,79 @@
+ <div class="card">
+                    <div class="card-body">
+                        <div class="row" style="padding: 9px;">
+
+                            <div class="col-md-3" style="padding-bottom:20px;">
+                                
+                                <%= property.images? ? image_tag(property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
+
+                            </div>
+
+                            <div class="col-md-9 info" style="">
+
+                               <div class="col-md-12">
+                                <p style="margin-left: 5px;margin-bottom: 10px;" > <strong><%= property.property_type%> - <%= property.city%> - <%=property.country.name%></strong>
+                                <%= link_to 'Ver Propiedad', property, class: "btn2", style: "float:right"%>
+                                </p>
+                                <small > <strong> Area: </strong><%= property.area%>,00 m2</small>
+                              <small><strong> Habitaciones: </strong><%= property.number_bedrooms%> hab</small>
+                              <small><strong> Estrato: </strong> <%= property.stratum%></small>
+                              </div>
+                            
+
+                          
+
+                              <div class="col-md-12">
+                                <hr>
+                                    <div class="row" style="padding-left: 10px;">
+                                      
+                                  <div class="col-md-4" style="padding-top: 10px">
+                                      <%= link_to  edit_property_path(property) do%>
+                        <i class="fas fa-pencil-alt" style = "font-size:20px;margin-right: 10px" aria-hidden="true"></i>
+                    <% end -%>
+                                  <%= link_to  property, method: :delete, data: {
+                                       confirm: '¿Estas Seguro?',
+                                       'confirm-button-text': 'Borrar',
+                                       'cancel-button-text': 'Cancelar',
+                                       'confirm-button-color': '#CC0000',
+                                        text: 'Recuerda que el registro se borrara permanentemente',
+                                       'image-url': ''} do%>
+                                    <i class="fas fa-trash-alt" style = "font-size:20px;" aria-hidden="true"></i>
+                                <% end -%>  
+                                </div>
+                                       <div class="col-md-8" style="    padding-right: 27px; font-size: 20px;text-align: right;">
+                                   
+                                        <small><b>Precio: </b><%= number_to_currency(property.prince, precision: 0) %></small>
+                                      </div>
+                                  
+                            </div>
+                         </div>
+                   </div>
+          </div>                            
+     </div>
+</div>
+
+<style>
+hr
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.alert-success, .alert-danger
+{
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+  img{
+    width: 180px !important;
+    height: 100px; 
+
+  }
+  .info small
+  {
+   
+    padding: 4px;
+    margin-right: 10px;
+  }
+ 
+</style>

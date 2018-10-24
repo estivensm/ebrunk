@@ -4,7 +4,7 @@
    <% @property1 = Property.find(brunk.property_two_id)%>
 
 <div class="row" style="background: #fff; border-radius: 4px;">
-   <p style="text-align: right;"> <%=link_to "Gestion Cambio" ,show_path(brunk.id), class: "btn btn-primary" %></p>
+   <p style="text-align: right;"> </p>
  
  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -14,40 +14,7 @@
          
             <h3 align="center">Propiedad que Ofreces</h3><br>
          
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row" style="padding: 9px;">
-
-                            <div class="col-md-3" style="padding-bottom:20px;">
-                                
-                                <%= @property.images? ? image_tag(@property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
-                            </div>
-
-                            <div class="col-md-9 info" style="">
-                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property.city%> - <%= @property.country.name%></h5>
-                                <small> <%= @property.area%>,00 m2</small>
-                              <small><%= @property.number_bedrooms%> hab</small>
-                              <small>strato <%= @property.stratum%></small>
-                            </div>
-
-                            
-
-                              <div class="col-md-12">
-                                <div class="row" style="padding-left: 10px;">
-                                  
-                              <div class="col-md-4" style="padding-left: 0px">
-                                <%= link_to 'Ver Propiedad', @property, class: "btn2"%>
-                            </div>
-                                   <div class="col-md-8" style="    padding-right: 27px; font-size: 25px;text-align: right;">
-                                    <small><b>Precio</b></small>:
-                                    <small><%= number_to_currency(@property.prince, precision: 0) %></small>
-                                  </div>
-                                  
-                            </div>
-                          </div>
-                        </div>                            
-                      </div>
-                    </div>
+               <%=render 'property' , property: @property  %>
                
    
               </div>
@@ -60,43 +27,10 @@
          
             <h3 align="center">Propiedad que Quieres</h3><br>
          
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row" style="padding: 9px;">
-
-                            <div class="col-md-3" style="padding-bottom:20px;">
-                                
-                                <%= @property1.images? ? image_tag(@property1.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
-                            </div>
-
-                            <div class="col-md-9 info" style="">
-                                <h5 style="margin-top: -1px;"> <span style="margin-right: 20px"> <%= @property1.city%> - <%= @property1.country.name%></h5>
-                                <small> <%= @property1.area%>,00 m2</small>
-                              <small><%= @property1.number_bedrooms%> hab</small>
-                              <small>strato <%= @property1.stratum%></small>
-                            </div>
-
-                            
-
-                              <div class="col-md-12">
-                                <div class="row" style="padding-left: 10px;">
-                                  
-                              <div class="col-md-4" style="padding-left: 0px">
-                                <%= link_to 'Ver Propiedad', @property1, class: "btn2"%>
-                            </div>
-                                   <div class="col-md-8" style="    padding-right: 27px; font-size: 25px;text-align: right;">
-                                    <small><b>Precio</b></small>:
-                                    <small><%= number_to_currency(@property1.prince, precision: 0) %></small>
-                                  </div>
-                                  
-                            </div>
-                          </div>
-                        </div>                            
-                      </div>
-                    </div>
+             <%=render 'property' , property: @property1  %>
                
    
-              </div>
+            </div>
           
       </div>
     </div>
@@ -106,7 +40,7 @@
                               <div class="alert alert-danger">
                                    <small><b>Debes dar</b></small>
                                     <small><%= number_to_currency((@property1.prince - @property.prince ), precision: 0) %></small>
-
+                                    <%=link_to "Ver Detalles" ,show_path(brunk.id), class: "btn btn-danger" , style: "margin-left:30px;" %>
                               </div>    
                                
                                   
@@ -114,7 +48,7 @@
                                   <%else%>
                         <div class="alert alert-success">
                                       <small><b>Te deben dar</b></small>
-                                    <small><%= number_to_currency(( @property.prince - @property1.prince), precision: 0) %></small>
+                                    <small><%= number_to_currency(( @property.prince - @property1.prince), precision: 0) %></small> <%=link_to "Ver Detalles" ,show_path(brunk.id), class: "btn btn-success" , style: "margin-left:30px;"%>
                            </div> 
         <%end%>
 
@@ -124,7 +58,7 @@
 </div>
 
 </div>
-
+<br>
 <%end%>
 
 
@@ -142,7 +76,7 @@
   }
   .info small
   {
-        background: #e3e3e3;
+   
     padding: 4px;
     margin-right: 10px;
   }

@@ -3,7 +3,7 @@ class PropertiesController < ApplicationController
   before_action :authenticate_runner!, :except => [:index, :show]
   # GET /properties
   # GET /properties.json
-  layout 'runner_home', :only => :new
+  layout 'runner_home', :only => [:new, :edit]
   def index
 
     if params[:search] || params[:search2] || params[:search3]

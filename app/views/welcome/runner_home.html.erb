@@ -1,68 +1,13 @@
 <div class="row" style="background: #fff; border-radius: 4px;">
  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="row mb-3">
-         <div class="col-md-12 col-md-offset-1">
+         <div class="col-md-10 col-md-offset-1">
           <% if @properties.any? %>
             <h1 align="center">Mis publicaciones</h1><br>
             <% @properties.each do |property| %>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row" style="padding: 9px;">
-
-                            <div class="col-md-3" style="padding: ">
-                                
-                                <%= property.images? ? image_tag(property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
-                            </div>
-
-                            <div class="col-md-7" style="text-align: center;">
-                                <h5 style="margin-top: -1px;"><%= property.title%></h5>
-                                <small>Jopitor Inc., India</small>
-                                <p><small>11907 Dyuuleves Incorpotatestion, South west, Newzealer</small></p>
-                            </div>
-
-                            <div class="col-md-2" style="padding-left: 0px;">
-                                <%= link_to 'Ver Propiedad', property, class: "btn2" %>
-                            </div>
-
-                              <div class="col-md-12">
-                                <div class="row" style="padding-left: 10px;">
-                                  <div class="col-md-3">
-                                    <small><b>Estado del Inmueble</b></small><br>
-                                    <small><%= property.state %></small>
-                                  </div>
-
-                                  <div class="col-md-3">
-                                    <small><b>Pais del Inmueble</b></small><br>
-                                    <small><%= property.country.name if  property.country %></small>
-                                  </div>
-
-                                  <div class="col-md-3">
-                                    <small><b>Pais del Inmueble</b></small><br>
-                                    <small><%= property.country.name if  property.country%></small>
-                                  </div>
-
-                                  <div class="col-md-3 text-right" style="padding-right: 27px; float: right;">
-
-                    <%= link_to  edit_property_path(property) do%>
-                        <i class="fas fa-pencil-alt" style = "font-size:20px;" aria-hidden="true"></i>
-                    <% end -%>
-                                  <%= link_to  property, method: :delete, data: {
-                                       confirm: '¿Estas Seguro?',
-                                       'confirm-button-text': 'Borrar',
-                                       'cancel-button-text': 'Cancelar',
-                                       'confirm-button-color': '#CC0000',
-                                        text: 'Recuerda que el registro se borrara permanentemente',
-                                       'image-url': ''} do%>
-                                    <i class="fas fa-trash-alt" style = "font-size:20px; color: red;" aria-hidden="true"></i>
-                                <% end -%>    
-                                  </div>
-                            </div>
-                          </div>
-                        </div>                            
-                      </div>
-                    </div>
-                  <br>
+             <%=render 'property' , property: property  %>
+          
                 <% end -%>
               </div>
             <div class="body">
@@ -94,9 +39,3 @@
 </html>
 
 
-<style>
-  img{
-    width: 120px !important;
-
-  }
-</style>

@@ -1,0 +1,92 @@
+                  <div class="card">
+                    <div class="card-body">
+                        <div class="row" style="padding: 9px;">
+
+                          <div class="col-md-3 propertyc-img" style="padding-bottom:20px;">
+                                
+                                <%= property.images? ? image_tag(property.images_url(:medium)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ") %>
+                            </div>
+
+                            
+                            <div class="col-md-9 info" style="">
+
+                               <div class="col-md-12">
+                                <p style="margin-left: 5px;margin-bottom: 10px;" > <strong><%= property.property_type%> - <%= property.city%> - <%=property.country.name%></strong>
+                              
+                                </p>
+                                <small > <strong> Area: </strong><%= property.area%>,00 m2</small>
+                              <small><strong> Habitaciones: </strong><%= property.number_bedrooms%> hab</small>
+                              <small><strong> Estrato: </strong> <%= property.stratum%></small>
+                              </div>
+                           
+                              </div>
+                            
+
+                              <div class="col-md-12">
+                                <div class="row" style="padding-left: 10px;">
+                                  
+                              <div class="col-md-4" style="padding-left: 0px">
+                               <p> <%= link_to 'Ver Propiedad', property, class: "btn2"%></p>
+                               <p>  <%= link_to 'Brunk', step2_path(property1.id, property.id), class: "btn2" %></p>
+                                </div>
+
+                                  <div class="col-md-8" style="margin-top: 5px;">
+                                    <div class="col-md-6" style="    padding-right: 27px; font-size: 16px;">
+                                     <small><b>Precio</b></small>
+                                    <small><%= number_to_currency(property.prince, precision: 0) %></small>
+                                  </div>
+
+
+                                   <%if (property.prince - property1.prince) > 0 %>
+                                  <div class="col-md-6 text-right" style="    padding-right: 18px;float: right; font-size: 16px;color: red;">
+                                 
+                                
+                                   <small><b>Debes dar</b></small>
+                                    <small><%= number_to_currency((property.prince - property1.prince ), precision: 0) %></small>
+                                     </div>
+                                  <%else%>
+                                  <div class="col-md-6 text-right" style="    padding-right: 20px;font-size: 18px;color: green;">
+                                      <small><b>Te deben dar</b></small><br>
+                                    <small><%= number_to_currency(( property1.prince - property.prince), precision: 0) %></small>
+                                     </div>
+                                  <%end%>
+                               </div>  
+                                   
+                                    
+                                 
+                                  
+                           
+                          </div>
+                        </div>                            
+                      
+                    </div>
+                  </div>  
+                 </div>    
+<style>
+hr
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.alert-success, .alert-danger
+{
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+  .propertyc-img img{
+    width: 120px !important;
+    height: 80px; 
+
+  }
+  .info small
+  {
+   
+    padding: 4px;
+    margin-right: 10px;
+  }
+ .card
+ {
+  margin-bottom: 10px !important;
+ } 
+</style>                    
