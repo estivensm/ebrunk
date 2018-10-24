@@ -12,8 +12,7 @@ class ContactsController < ApplicationController
   def  crear_call
      
      contact = Contact.find(params[:id])
-     puts current_runner.token
-     puts "hollaaaaaaaaaaaaaaaaaaaaaaaaaa" if current_runner.token != nil && !current_runner.token.blank?
+   
   	 if current_runner.token != nil && !current_runner.token.blank?
             
             t = contact.datetime_call
@@ -35,6 +34,9 @@ class ContactsController < ApplicationController
             'conferenceData' => { "createRequest" => { "requestId" => "7qxalsvy0e"} }
 
           }
+
+
+          
             client = Google::APIClient.new
             client.authorization.refresh_token = current_runner.refresh_token_if_expired
             client.authorization.access_token = current_runner.token
