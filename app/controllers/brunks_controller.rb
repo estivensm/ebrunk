@@ -25,6 +25,11 @@ layout 'runner_home'
     @brunk = Brunk.find(params[:id])
   end
 
+  def show_required
+    @brunk = Brunk.find(params[:id])
+  end
+
+
   def brunks_required
 
      @brunks = current_runner.brunks_one

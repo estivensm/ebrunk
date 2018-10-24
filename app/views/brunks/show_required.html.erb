@@ -1,0 +1,37 @@
+<% @property = Property.find(@brunk.property_one_id)%>
+   <% @property1 = Property.find(@brunk.property_two_id)%>
+
+<div class="row" style="background: #fff; border-radius: 4px;">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-md-6">
+      <div class="row mb-3">
+         <div class="col-md-10 col-md-offset-1">
+         
+            <h3 align="center">Propiedad que te Ofrecen</h3><br>
+         
+             <%=render 'property_card' , property: @property %>
+                  <br>
+   
+              </div>
+          
+      </div>
+    </div>
+ <div class="col-md-6">
+      <div class="row mb-3">
+         <div class="col-md-10 col-md-offset-1">
+         
+            <h3 align="center">Propiedad que Quieren</h3><br>
+         
+             <%=render 'property_card' , property: @property1  %>
+                  <br>
+   
+              </div>
+          
+      </div>
+    </div>
+
+
+
+</div>
+
+</div>

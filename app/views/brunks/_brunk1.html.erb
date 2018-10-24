@@ -1,0 +1,66 @@
+
+<% @property = Property.find(@brunk.property_one_id)%>
+   <% @property1 = Property.find(@brunk.property_two_id)%>
+
+
+
+
+
+<div class="row" style="background: #fff; border-radius: 4px;">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-md-6">
+      <div class="row mb-3">
+         <div class="col-md-10 col-md-offset-1">
+         
+            <h3 align="center">Mi propiedad para el Brunk</h3><br>
+         
+             <%=render 'property_card' , property: @property %>
+      
+              </div>
+          
+      </div>
+    </div>
+ <div class="col-md-6">
+      <div class="row mb-3">
+         <div class="col-md-10 col-md-offset-1">
+         
+            <h3 align="center">Propiedad Solicitada</h3><br>
+         
+             <%=render 'property_card' , property: @property1  %>
+              
+   
+              </div>
+          
+      </div>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3">
+         <%if (@property1.prince - @property.prince) > 0 %>
+                    
+                              <div class="alert alert-danger">
+                                   <small><b>Debes dar</b></small>
+                                    <small><%= number_to_currency((@property1.prince - @property.prince ), precision: 0) %></small>
+                                    
+                              </div>    
+                               
+                                  
+                                  
+                                  <%else%>
+                        <div class="alert alert-success">
+                                      <small><b>Te deben dar</b></small>
+                                    <small><%= number_to_currency(( @property.prince - @property1.prince), precision: 0) %></small> 
+                           </div> 
+        <%end%>
+
+
+    
+ </div>  
+
+
+
+
+</div>
+
+</div>
+
+
