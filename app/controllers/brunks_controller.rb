@@ -23,6 +23,7 @@ layout 'runner_home'
 
   def show
     @brunk = Brunk.find(params[:id])
+    @brunk_tracing = BrunkTracing.all
   end
 
   def show_required
@@ -46,8 +47,8 @@ layout 'runner_home'
 
  def new_comment_brunk
      
-     BrunkTracing.create(brunk_id: params[:brunk_id], comment: params[:comment], offer: params[:offer], runner_id: params[:runner_id])
-
+  @brunk_tracing = BrunkTracing.create(brunk_id: params[:brunk_id], comment: params[:comment], offer: params[:offer], runner_id: params[:runner_id])
+  
   end
 
 
