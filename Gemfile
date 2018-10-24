@@ -42,8 +42,8 @@ gem 'fog', '~> 1.38'
 gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'google-api-client', '0.8.2', require: 'google/api_client'
-gem 'google_calendar', '~> 0.6.2'
+gem 'google-api-client', '~> 0.11'
+gem 'googlecalendar', '~> 1.1'
 gem 'omniauth-google-oauth2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
