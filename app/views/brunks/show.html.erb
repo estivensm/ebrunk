@@ -7,9 +7,9 @@
 <%else%>
    <%= render 'brunk2'%>
 <%end%>
- 
- <div class="row">
-      <div class="col-md-12 form-send">
+
+<div class="row">
+    <div class="col-md-12 form-send">
         <div class="w3-container" style="padding: 0px; ">
    
 
@@ -23,16 +23,20 @@
             <label style="">Oferta</label><br>
              <%= text_field_tag :offer ,nil, class: "form form-control"%>
             </div>
+
            <%=hidden_field_tag :brunk_id, @brunk.id%>
            <%=hidden_field_tag :runner_id, current_runner.id%>
 
 
-           	 <div class="form-group col-md-3">	<br>	
-            <input type="submit" class="btn btn-primary btn-block">
+           	<div class="form-group col-md-3">	<br>	
+              <input type="submit" class="btn btn-primary btn-block">
             </div>	
-          </form>
         </div>
-      </div>
     </div>
+</div>
 
-
+<div class="comentarios"> 
+  <% @brunk_tracing.each do |brunk_tracing| %>
+    <%= render "show_items", brunk_tracing: brunk_tracing %>
+  <% end -%>
+</div>
