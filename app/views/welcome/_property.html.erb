@@ -11,7 +11,7 @@
                             <div class="col-md-9 info" style="">
 
                                <div class="col-md-12">
-                                <p style="margin-left: 5px;margin-bottom: 10px;" > <strong><%= property.property_type%> - <%= property.city%> - <%=property.country.name%></strong>
+                                <p style="margin-left: 5px;margin-bottom: 10px;" > <strong><%= property.property_type%> - <%= property.city%> - <%=property.country.name if property.country%></strong>
                                    <%= link_to 'Brunk', step1_path(property.id), class: "btn2", style: "float:right;margin-left:10px;" if action_name == "pagina_show"%>
                                 <%= link_to 'Ver Propiedad', property, class: "btn2", style: "float:right"%>
 

@@ -11,7 +11,7 @@
                             <div class="col-md-9 info" style="">
 
                                <div class="col-md-12">
-                                <p style="margin-left: 5px;margin-bottom: 10px;" > <strong><%= property.property_type%> - <%= property.city%> - <%=property.country.name%></strong>
+                                <p style="margin-left: 5px;margin-bottom: 10px;" > <strong><%= property.property_type%> - <%= property.city%> - <%=property.country.name if property.country%></strong>
                                 <%= link_to 'Ver Propiedad', property, class: "btn2", style: "float:right"%>
                                 </p>
                                 <small > <strong> Area: </strong><%= property.area%>,00 m2</small>
