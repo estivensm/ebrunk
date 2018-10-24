@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_171933) do
+ActiveRecord::Schema.define(version: 2018_10_24_213101) do
 
   create_table "brunk_tracings", force: :cascade do |t|
     t.integer "brunk_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_10_24_171933) do
     t.boolean "contac_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "datetime_call"
   end
 
   create_table "countries", force: :cascade do |t|

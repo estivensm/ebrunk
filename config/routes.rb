@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   post "new_contact", to: "contacts#create", as: "new_contact"
   get 'properties/:id' , to: 'properties#show', as: 'properties_show'
 
+  
+  get 'crear_call/:id' , to: 'contacts#crear_call', as: 'crear_call'  
   post "new_comment_brunk", to: "brunks#new_comment_brunk", as: "new_comment_brunk"
 
 end
