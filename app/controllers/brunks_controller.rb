@@ -42,5 +42,17 @@ layout 'runner_home'
      Brunk.create(runner_one_id: params[:idrunnerone], runner_two_id: params[:idrunnertwo], property_one_id: params[:idprone], property_two_id: params[:idprtwo])
 
   end
+
+
+ def new_comment_brunk
+     
+     BrunkTracing.create(brunk_id: params[:brunk_id], comment: params[:comment], offer: params[:offer], runner_id: params[:runner_id])
+
+  end
+
+
 end
+
+
+
   
