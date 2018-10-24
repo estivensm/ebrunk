@@ -44,9 +44,9 @@
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="index.html">LOGO</a>
             </div>
+            <!--
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Notifications -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
@@ -154,10 +154,9 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- #END# Notifications -->
-                    <!-- Tasks -->
-                
+
             </div>
+        -->
         </div>
     </nav>
     <!-- #Top Bar -->
@@ -177,7 +176,7 @@
             </div>
             <!-- #User Info -->
             <!-- Menu -->
-            <div class="menu">
+            <div class="menu" style="overflow: scroll !important;">
                 <ul class="list">
                     <li class="header">Runner Menu</li>
                     <br>
@@ -227,10 +226,12 @@
                     </li>
 
                     <li>
-                        <%= link_to  properties_path do %>
+                        <%= link_to  destroy_runner_session_path, method: :delete do %>
                             <i class="fas fa-power-off" id="icon_menu" style="color: red;"></i><b> Salir</b>
                         <% end -%>
                     </li>
+                    <div style="margin-bottom: 100px;"></div>
+                    <br><br>
                     <!--
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -383,6 +384,8 @@
         margin-left: 4px;
         margin-right: 13px;
     }
+
+
 </style>
 
 <style>

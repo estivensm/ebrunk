@@ -9,7 +9,7 @@ module ApplicationHelper
 	end
 
 	def get_properties_true_count
-		Property.show_true.count
+		Property.where(runner_id: current_runner.id).show_true.count
 	end
 
 	def page_entries_info(collection, options = {})
