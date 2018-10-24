@@ -1,6 +1,6 @@
 <!-- Page Container -->
 <div class="container">
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:10px">    
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:10px; margin-left: 100px;">    
   <!-- The Grid -->
   <div class="w3-row">
     <!-- Left Column -->
@@ -24,7 +24,7 @@
     <!-- Middle Column -->
     <div class="w3-col m7">
       <div class="w3-container w3-card w3-white w3-round w3-margin" style="margin-top: 0px !important;     border-top: 2px solid #dfe5e8;"><br>
-        <div class="col-md-6" style="padding: 0px;">
+        <div class="col-md-8" style="padding: 0px;">
           <h2><%= @property.property_type %> en Venta </h2> 
           <p><%= @property.city %></p>
         </div>
@@ -41,9 +41,9 @@
         </table>
 
         <div class="col-md-12" style="padding: 0px;">
-          <div class="container" style="padding: 0px;">
+          <div class="container" style="padding-left: 0px;" >
             <div class="col-md-6" style="padding: 0px;">
-                    <div class="tab" role="tabpanel">
+                <div class="tab" role="tabpanel">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Imagenes</a></li>
@@ -51,20 +51,43 @@
                         </ul>
 
                         <!-- Tab panes -->
-                        <div class="tab-content tabs">
+                        <div class="tab-content tabs" style="width: 90%;">
                             <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                                <div class="carousel"
-                                  data-flickity='{ "autoPlay": true}'>
+
+                                <div class="galleryContainer">
+                                  <div class="slideShowContainer">
+                                      <div id="playPause" onclick="playPauseSlides()"></div>
+                                      <div onclick="plusSlides(-1)" class="nextPrevBtn leftArrow"><span class="arrow arrowLeft"></span></div>
+                                      <div onclick="plusSlides(1)" class="nextPrevBtn rightArrow"><span class="arrow arrowRight"></span></div>
+                                      <div class="captionTextHolder"><p class="captionText slideTextFromTop"></p></div>
+
+                                      <div class="imageHolder">
+
+                                      <%= @property.images? ? image_tag(@property.images_url(:large)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
+
+                                        <p class="captionText"></p>
+                                      </div>
+
                                     <% @property.property_images.each do |image|%>
+                                      <div class="imageHolder">
 
                                       <%= image.file? ? image_tag(image.file_url(:large)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ", style: "height: 104px;")%>
+
+                                        <p class="captionText"></p>
+                                      </div>
+
+
                                     <% end -%>
 
-                              
-                                </div>
+
+                                
+                                  </div>
+                                  <div id="dotsContainer"></div>
+                              </div>
+
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="Section2">
-                                  <iframe width="580" height="400" src="https://my.matterport.com/show/?model=g8ioLttQigi" allowfullscreen allow="vr"></iframe>
+                                  <iframe  width="530" height="450" src="https://my.matterport.com/show/?model=g8ioLttQigi" allowfullscreen allow="vr"></iframe>
                             </div>
                         </div>
                     </div>
@@ -110,7 +133,7 @@
         <span class="w3-left w3-opacity">Ubicacion del Inmueble</span>
         <hr class="w3-clear">
         <div class="col-md-12" style="padding: 0px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63460.01223186089!2d-75.58571159203002!3d6.230635615154693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa042651907d7e2a7!2sCaf%C3%A9+Literario+el+Taller!5e0!3m2!1ses-419!2sco!4v1539807186561" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63460.01223186089!2d-75.58571159203002!3d6.230635615154693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa042651907d7e2a7!2sCaf%C3%A9+Literario+el+Taller!5e0!3m2!1ses-419!2sco!4v1539807186561" width="530" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div> 
 
@@ -120,41 +143,125 @@
     
     <!-- Right Column -->
     <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container" style="border-top: 2px solid #dfe5e8;">
-          <h2>asdasddsa</h2>
+      <div class="w3-card w3-round w3-white w3-center form-send">
+        <div class="w3-container" style="padding: 0px; ">
+          <h2>Mensage</h2><br>
+          <form method="POST">
+
+            <label style="float: left;">Nombre</label>
+            <input type="text" class="form form-control" value="<%= current_runner.name%>">
+            <br>
+
+            <label style="float: left;">Email</label>
+            <input type="text" class="form form-control" value="<%= current_runner.email%>">
+            <br>
+
+            <label style="float: left;">Contactar</label>
+            <textarea rows="7" cols="25" class="form form-control" style="resize: none;" placeholder="&#xF002;">Me Interesa este Inmueble</textarea>
+            <br><br>
+
+            <input type="submit" class="btn btn-primary btn-block">
+
+          </form>
         </div>
       </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <h2>asdasdas</h2>
-        </div>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-        <h2>asdasdas</h2>
-      </div>
-      <br>
-      
-      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-        <h1>asdasdsa</h1>
-      </div>
-      
-    <!-- End Right Column -->
     </div>
     
-  <!-- End Grid -->
-  </div>
-  
-<!-- End Page Container -->
-        </div>
-      </div">
-    </div>
-  </div>
+  <script type="text/javascript">
+    
+var slideIndex,slides,dots,captionText;
+function initGallery(){
+    slideIndex = 0;
+    slides=document.getElementsByClassName("imageHolder");
+    slides[slideIndex].style.opacity=1;
 
+    captionText=document.querySelector(".captionTextHolder .captionText");
+    captionText.innerText=slides[slideIndex].querySelector(".captionText").innerText;
+
+    //disable nextPrevBtn if slide count is one
+    if(slides.length<2){
+        var nextPrevBtns=document.querySelector(".leftArrow,.rightArrow");
+        nextPrevBtns.style.display="none";
+        for (i = 0; i < nextPrevBtn.length; i++) {
+            nextPrevBtn[i].style.display="none";
+        }
+    }
+
+    //add dots
+    dots=[];
+    var dotsContainer=document.getElementById("dotsContainer"),i;
+    for (i = 0; i < slides.length; i++) {
+        var dot=document.createElement("span");
+        dot.classList.add("dots");
+        dotsContainer.append(dot);
+        dot.setAttribute("onclick","moveSlide("+i+")");
+        dots.push(dot);
+    }
+    dots[slideIndex].classList.add("active");
+}
+initGallery();
+function plusSlides(n) {
+    moveSlide(slideIndex+n);
+}
+function moveSlide(n){
+    var i;
+    var current,next;
+    var moveSlideAnimClass={
+          forCurrent:"",
+          forNext:""
+    };
+    var slideTextAnimClass;
+    if(n>slideIndex) {
+        if(n >= slides.length){n=0;}
+        moveSlideAnimClass.forCurrent="moveLeftCurrentSlide";
+        moveSlideAnimClass.forNext="moveLeftNextSlide";
+        slideTextAnimClass="slideTextFromTop";
+    }else if(n<slideIndex){
+        if(n<0){n=slides.length-1;}
+        moveSlideAnimClass.forCurrent="moveRightCurrentSlide";
+        moveSlideAnimClass.forNext="moveRightPrevSlide";
+        slideTextAnimClass="slideTextFromBottom";
+    }
+
+    if(n!=slideIndex){
+        next = slides[n];
+        current=slides[slideIndex];
+        for (i = 0; i < slides.length; i++) {
+            slides[i].className = "imageHolder";
+            slides[i].style.opacity=0;
+            dots[i].classList.remove("active");
+        }
+        current.classList.add(moveSlideAnimClass.forCurrent);
+        next.classList.add(moveSlideAnimClass.forNext);
+        dots[n].classList.add("active");
+        slideIndex=n;
+        captionText.style.display="none";
+        captionText.className="captionText "+slideTextAnimClass;
+        captionText.innerText=slides[n].querySelector(".captionText").innerText;
+        captionText.style.display="block";
+    }
+
+}
+var timer=null;
+function setTimer(){
+    timer=setInterval(function () {
+        plusSlides(1) ;
+    },3000);
+}
+setTimer();
+function playPauseSlides() {
+    var playPauseBtn=document.getElementById("playPause");
+    if(timer==null){
+        setTimer();
+        playPauseBtn.style.backgroundPositionY="0px"
+    }else{
+        clearInterval(timer);
+        timer=null;
+        playPauseBtn.style.backgroundPositionY="-33px"
+    }
+}
+  </script>
+                                    
 
 
 <style>
@@ -229,5 +336,208 @@
     .tab .tab-content{ margin-top: 0; }
 }
 
+th{
+  font-size: 13px;
+}
+
+
+.galleryContainer{
+    width: 100%;
+    height: 500px;
+    max-width: 1000px;
+    margin: auto;
+    user-select: none;
+    box-shadow: 0px 0px 3px 1px #00000078;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.galleryContainer .slideShowContainer{
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    background-color: gainsboro;
+    position: relative;
+}
+.galleryContainer .slideShowContainer #playPause{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    background-image: url(https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/54/playPause.png);
+    background-repeat: no-repeat;
+    z-index: 5;
+    background-size: cover;
+    margin: 5px;
+    cursor: pointer;
+}
+.galleryContainer .slideShowContainer #playPause:hover{
+    opacity: .7;
+}
+.galleryContainer .slideShowContainer .imageHolder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+.galleryContainer .slideShowContainer .imageHolder img{
+    width: 100%;
+    height: 100%;
+}
+.galleryContainer .slideShowContainer .imageHolder .captionText{
+    display: none;
+}
+
+.galleryContainer .slideShowContainer .leftArrow,.galleryContainer .slideShowContainer .rightArrow{
+    width: 50px;
+    background: #00000036;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transition: background 0.5s;
+    height: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.galleryContainer .slideShowContainer .rightArrow{
+    left: auto;
+    right: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.galleryContainer .slideShowContainer .leftArrow:hover,.galleryContainer .slideShowContainer .rightArrow:hover{
+    background: #000000a8;
+    cursor: pointer;
+}
+.galleryContainer .arrow{
+    display: inline-block;
+    border: 3px solid white;
+    width: 10px;
+    height: 10px;
+    border-left: none;
+    border-bottom: none;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.galleryContainer .arrow.arrowLeft{
+    transform: rotateZ(-135deg);
+}
+.galleryContainer .arrow.arrowRight{
+    transform: rotateZ(45deg);
+}
+
+
+.galleryContainer .slideShowContainer>.captionTextHolder{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    background: #00000047;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+.galleryContainer .slideShowContainer>.captionTextHolder>.captionText{
+    margin: 0;
+}
+
+.galleryContainer #dotsContainer{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.galleryContainer #dotsContainer .dots{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: #bbb;
+    cursor: pointer;
+    transition:background-color 0.5s;
+}
+.galleryContainer #dotsContainer .dots:first-child{
+    margin-left: 0;
+}
+.galleryContainer #dotsContainer .dots:hover,.galleryContainer #dotsContainer .dots.active{
+    background-color: #717171;;
+}
+
+
+
+
+.galleryContainer .moveLeftCurrentSlide{
+    animation-name: moveLeftCurrent;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+
+}
+.galleryContainer .moveLeftNextSlide{
+    animation-name: moveLeftNext;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes moveLeftCurrent {
+    from {margin-left: 0;opacity: 1;}
+    to {margin-left: -100%;opacity: 1;}
+}
+@keyframes moveLeftNext {
+    from {margin-left: 100%;opacity: 1;}
+    to {margin-left: 0%;opacity: 1;}
+}
+
+
+.galleryContainer .moveRightCurrentSlide{
+    animation-name: moveRightCurrent;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+.galleryContainer .moveRightPrevSlide{
+    animation-name: moveRightPrev;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes moveRightCurrent {
+    from {margin-left: 0;opacity: 1;}
+    to {margin-left: 100%;opacity: 1;}
+}
+@keyframes moveRightPrev {
+    from {margin-left: -100%;opacity: 1;}
+    to {margin-left: 0%;opacity: 1;}
+}
+.slideTextFromBottom {
+    animation-name: slideTextFromBottom;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+}
+@keyframes slideTextFromBottom {
+    from {opacity: 0;margin-top: 100px}
+    to {opacity: 1;margin-top: 0px;}
+}
+.slideTextFromTop {
+    animation-name: slideTextFromTop;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+}
+@keyframes slideTextFromTop {
+    from {opacity: 0;margin-top: -100px}
+    to {opacity: 1;margin-top: 0px;}
+}
 </style>
     
