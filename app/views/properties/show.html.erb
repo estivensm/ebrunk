@@ -146,7 +146,8 @@
       <div class="w3-card w3-round w3-white w3-center form-send">
         <div class="w3-container" style="padding: 0px; ">
           <h2>Mensage</h2><br>
-          <form method="POST">
+
+         <% form_tag new_contact_path remote: true  %>
 
             <label style="float: left;">Nombre</label>
             <input type="text" class="form form-control" value="<%= current_runner.name%>">

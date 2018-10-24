@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_220208) do
+ActiveRecord::Schema.define(version: 2018_10_24_171933) do
 
   create_table "brunk_tracings", force: :cascade do |t|
     t.integer "brunk_id"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 2018_10_23_220208) do
     t.integer "runner_two_id"
     t.integer "property_one_id"
     t.integer "property_two_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.integer "property_id"
+    t.boolean "call"
+    t.date "call_date"
+    t.boolean "state_call"
+    t.string "url_call"
+    t.boolean "contac_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
