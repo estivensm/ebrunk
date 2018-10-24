@@ -147,26 +147,92 @@
         <div class="w3-container" style="padding: 0px; ">
           <h2>Mensage</h2><br>
 
-         <% form_tag new_contact_path remote: true  %>
+         <%= form_tag new_contact_path, remote: true, method: :post do %>
 
-            <label style="float: left;">Nombre</label>
-            <input type="text" class="form form-control" value="<%= current_runner.name%>">
+            <%= label_tag :Nombre %>
+            <%= text_field_tag :name,nil, class: "form form-control", :placeholder => "Nombre"%>
             <br>
 
-            <label style="float: left;">Email</label>
-            <input type="text" class="form form-control" value="<%= current_runner.email%>">
+            <%= label_tag :Email %>
+            <%= email_field_tag :email,nil, class: "form form-control", :placeholder => "Nombre"%>
             <br>
 
-            <label style="float: left;">Contactar</label>
-            <textarea rows="7" cols="25" class="form form-control" style="resize: none;" placeholder="&#xF002;">Me Interesa este Inmueble</textarea>
-            <br><br>
+            <%= label_tag :Mensage %>
+            <%= text_area_tag :message,nil, class: "form form-control", :placeholder => "Mensage" ,:rows => 7,  :cols =>25 %>
+            <br>
+            <p>Solicitud de Video llamada</p>
+            <div class="col-md-12"  style="margin-left: 12px;">
+              <div class="row funkyradio">
+                    <div class="col-md-6" style="padding-left: 0px;">
+                      <div class="form-group funkyradio-success">
+                        <%= radio_button_tag :state_call, true,nil, class: "rv" %>
+                        <label for="state_call_true">Si</label>
+                      </div>
+                    </div>
 
-            <input type="submit" class="btn btn-primary btn-block">
+                    <div class="col-md-6" style="padding-right: 0px;">
+                      <div class="form-group funkyradio-success">
+                        <%= radio_button_tag :state_call,false,nil, class: "rp" %>
+                        <label for="state_call_false">No</label>
+                      </div>
+                    </div>
+               </div>
+            </div>
 
-          </form>
+            <div class="col-md-12" id="input-date" style="display: none; padding: 0px;">
+                <div class="field">
+                  <%= label_tag :Fecha_de_reunion %>
+                  <%= date_field_tag :call_date,nil, class: "form form-control"%>
+                </div>
+                <br>
+            </div>
+
+            <%= submit_tag "Enviar", class: "btn btn-primary btn-block"  %>
+
+            <div class="col-md-5">
+                <div class="alert alert-info" style="display: none;">
+                    <p>El Mensaje se envio con <b>exito!</b></p>
+                </div>  
+            </div>
+
+          <% end -%>
         </div>
       </div>
     </div>
+
+    <script>
+  $('.rp').change(function(){
+
+             if ( $(this).is(':checked') )
+    {
+            $('.rv').prop('checked', false);
+            $('.rp').prop('checked', true);
+
+            $("#input-date").fadeOut(300) 
+            
+     
+            
+       }
+       
+    });
+    $('.rv').change(function(){
+
+             if ( $(this).is(':checked') )
+    {
+            $('.rp').prop('checked', false);
+            $('.rv').prop('checked', true);
+
+            $("#input-date").fadeIn(300) 
+      
+
+            
+     
+            
+       }
+       
+    });
+
+</script>
     
   <script type="text/javascript">
     
@@ -540,5 +606,9 @@ th{
     from {opacity: 0;margin-top: -100px}
     to {opacity: 1;margin-top: 0px;}
 }
+
+  .funkyradio div {
+    overflow: hidden;
+  }
 </style>
     
