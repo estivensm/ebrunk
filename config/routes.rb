@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'contacts/index'
+  get 'contacts/create'
   #brunk routes
   get 'brunks/step1/:id' , to: 'brunks#step1', as: 'step1'
   get 'brunks/step2/:id1/:id2' , to: 'brunks#step2', as: 'step2'
@@ -28,6 +30,10 @@ Rails.application.routes.draw do
   get "pagina_show", to: "welcome#pagina_show", as: "pagina_show"
 
   post "cambios/:id", to: "properties#cambios", as: "cambios"
+
+  #contacto routes
+
+  post "new_contact", to: "contacts#create", as: "new_contact"
 
 end
 
