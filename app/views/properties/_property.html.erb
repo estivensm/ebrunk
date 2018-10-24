@@ -26,20 +26,6 @@
                                 <hr>
                                     <div class="row" style="padding-left: 10px;">
                                       
-                                  <div class="col-md-4" style="padding-top: 10px">
-                                      <%= link_to  edit_property_path(property) do%>
-                        <i class="fas fa-pencil-alt" style = "font-size:20px;margin-right: 10px" aria-hidden="true"></i>
-                    <% end -%>
-                                  <%= link_to  property, method: :delete, data: {
-                                       confirm: '¿Estas Seguro?',
-                                       'confirm-button-text': 'Borrar',
-                                       'cancel-button-text': 'Cancelar',
-                                       'confirm-button-color': '#CC0000',
-                                        text: 'Recuerda que el registro se borrara permanentemente',
-                                       'image-url': ''} do%>
-                                    <i class="fas fa-trash-alt" style = "font-size:20px;" aria-hidden="true"></i>
-                                <% end -%>  
-                                </div>
                                        <div class="col-md-8" style="    padding-right: 27px; font-size: 20px;text-align: right;">
                                    
                                         <small><b>Precio: </b><%= number_to_currency(property.prince, precision: 0) %></small>

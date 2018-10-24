@@ -551,3 +551,9 @@ ul[data-menu-style="vertical"] li a:hover {
 .panel-body ul{
     list-style-type: none;
 }
+
+.form-send{
+    width: 25%;
+    padding: 30px;
+    position: fixed;
+}
