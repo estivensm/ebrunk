@@ -147,7 +147,7 @@
         <div class="w3-container" style="padding: 0px; ">
           <h2>Mensage</h2><br>
 
-         <%= form_tag new_contact_path, remote: true, method: :post do %>
+         <%= form_tag new_contact_path , remote: true,method: :post do %>
 
             <%= label_tag :Nombre %>
             <%= text_field_tag :name,nil, class: "form form-control", :placeholder => "Nombre"%>
@@ -178,11 +178,11 @@
                     </div>
                </div>
             </div>
-
+            <%= hidden_field_tag :property_id, @property.id%>
             <div class="col-md-12" id="input-date" style="display: none; padding: 0px;">
                 <div class="field">
                   <%= label_tag :Fecha_de_reunion %>
-                  <%= date_field_tag :datetime_call,nil, class: "form form-control"%>
+                  <%= datetime_field_tag :datetime_call, nil , class: "form form-control"%>
                 </div>
                 <br>
             </div>

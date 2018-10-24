@@ -2,13 +2,12 @@ class ContactsController < ApplicationController
 
 
   def create
-    @contact = Contact.create(name: params[:name], email: params[:email], message: params[:message], call: params[:call], datetime_call: params[:datetime_call], state_call: params[:state_call], url_call: params[:url_call], contac_state: params[:contac_state])
+    @contact = Contact.create(name: params[:name], email: params[:email], message: params[:message], call: params[:call],datetime_call: params[:datetime_call], state_call: params[:state_call], url_call: params[:url_call], contac_state: params[:contac_state], property_id: params[:property_id])
 
-  	if @contact.save
-  		
-  		redirect_to root_path
-  	end
+  
   end
+
+
 
   def  crear_call
      
