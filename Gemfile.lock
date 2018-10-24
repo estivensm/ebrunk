@@ -495,7 +495,7 @@ DEPENDENCIES
   devise (~> 4.3)
   figaro
   fog (~> 1.38)
-  google-api-client (= 0.8.2)
+  google-api-client
   google_calendar (~> 0.6.2)
   jbuilder (~> 2.5)
   jquery-rails
