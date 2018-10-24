@@ -10,17 +10,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- RECOVERY -->
-                <div class="recovery">
-                    <h2>Password Recovery</h2>
-                    <p>Enter either the <strong>email address</strong> or <strong>username</strong> on the account and <strong>click Submit</strong></p>
-                    <p>We'll email instructions on how to reset your password.</p>
-                    <form class="recovery-form" action="" method="post">
-                        <input type="text" class="input" id="user_recover" placeholder="Enter Email or Username Here">
-                        <input type="submit" class="button" value="Submit">
-                    </form>
-                    <p class="mssg">An email has been sent to you with further instructions.</p>
-                </div>
+    
 
                 <!-- SLIDER -->
                 <div class="content">
@@ -70,26 +60,26 @@
 
 
                                 <p id="login_names">Email</p>
-                                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "user_login", class: "input"%>
-
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "user_login", class: "input", :required => true%>
   
                                 <p id="login_names">Contraseña</p>
                                 <%= f.password_field :password, autocomplete: "current-password", id: "user_pass", class: "input" %>
                             
-
+                        <div class="actions">
                             <%= f.submit "Ingresar", class: "button" %><br>
-
+                        </div>
                           <% end %>
 
                           <div class="help-action">
 
-                            <p align="center"><%= render "devise/shared/links" %><br>
-                                <a href="/" class="btn1">Pagina Principal</a>
-                            </p>
-                            <p>
+                            <p id="google_enter">
                                 <a class="google" href="https://www.ebrunk.com/runners/auth/google_oauth2" >
                                      <img style="width:20px; float: left; " src="https://png.icons8.com/color/50/000000/google-logo.png" alt=""> Iniciar Sesión con Google 
                                  </a> 
+                            </p>
+
+                            <p align="center"><%= render "devise/shared/links" %><br>
+                                <a href="/" class="btn1">Pagina Principal</a>
                             </p>
                           </div>
                         </div>

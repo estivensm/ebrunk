@@ -15,18 +15,6 @@
                    <%= render "terminos"%>
                 </div>
 
-                <!-- RECOVERY -->
-                <div class="recovery">
-                    <h2>Password Recovery</h2>
-                    <p>Enter either the <strong>email address</strong> or <strong>username</strong> on the account and <strong>click Submit</strong></p>
-                    <p>We'll email instructions on how to reset your password.</p>
-                    <form class="recovery-form" action="" method="post">
-                        <input type="text" class="input" id="user_recover" placeholder="Enter Email or Username Here">
-                        <input type="submit" class="button" value="Submit">
-                    </form>
-                    <p class="mssg">An email has been sent to you with further instructions.</p>
-                </div>
-
                 <!-- SLIDER -->
                 <div class="content">
                     <!-- SLIDESHOW -->
@@ -76,17 +64,21 @@
 
 
                                 <p id="login_names">Email</p>
-                                <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "user_login", class: "input", :required => true%>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "user_login", class: "input" , :required => true%>
 
                                  <p id="login_names">Contraseña</p>
                                   <% if @minimum_password_length %>
                                    
                                   <% end %>
                                     <%= f.password_field :password, autocomplete: "new-password", id: "user_login", class: "input" %>
+
+                                   <!-- <%= f.hidden_field :name, :value =>  "Usuario" %>-->
                                 
                                 <p id="login_names">Confirmar Contraseña</p>
                                  <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "user_pass", class: "input" %>
-                             <%= f.submit "Registrarme", class: "button" %><br>
+                            <div class="actions">
+                                 <%= f.submit "Registrarme", class: "button" %><br>
+                            </div>
                           <% end %>
 
                           <div class="help-action">
