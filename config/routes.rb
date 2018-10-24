@@ -29,11 +29,14 @@ Rails.application.routes.draw do
   
   get "pagina_show", to: "welcome#pagina_show", as: "pagina_show"
 
+  get "index_contacs", to: "welcome#index_contacs", as: "index_contacs"
+
   post "cambios/:id", to: "properties#cambios", as: "cambios"
 
   #contacto routes
 
   post "new_contact", to: "contacts#create", as: "new_contact"
+  get 'properties/:id' , to: 'properties#show', as: 'properties_show'
 
   post "new_comment_brunk", to: "brunks#new_comment_brunk", as: "new_comment_brunk"
 
