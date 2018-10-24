@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
      puts "hollaaaaaaaaaaaaaaaaaaaaaaaaaa" if current_runner.token != nil && !current_runner.token.blank?
   	 if current_runner.token != nil && !current_runner.token.blank?
             
-            t = contact.start_datetime
+            t = contact.datetime_call
             t.min < 10 ? min = "0" : min = ""
             t.hour < 10 ? hora = "0" : hora = ""
             startdate = "#{t.year}-#{t.month}-#{t.day}T#{hora}#{t.hour}:#{min}#{t.min}:00-05:00"
