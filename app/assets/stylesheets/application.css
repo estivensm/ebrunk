@@ -553,7 +553,10 @@ ul[data-menu-style="vertical"] li a:hover {
 }
 
 .form-send{
-    width: 25%;
+    width: 200%;
     padding: 30px;
-    position: fixed;
+}
+
+.w3-container label{
+    float: left;
 }
