@@ -21,7 +21,7 @@
 
             <div class="form-group col-md-3">		
             <label style="">Oferta</label><br>
-             <%= text_field_tag :offer ,nil, class: "form form-control"%>
+             <%= text_field_tag :offer ,nil, class: "form form-control", :value => "$"%>
             </div>
 
            <%=hidden_field_tag :brunk_id, @brunk.id%>

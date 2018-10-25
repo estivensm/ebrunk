@@ -1,11 +1,43 @@
  <div class="card" style="padding-top: 5px;">
     <div class="card-body">
 
+      <div class="image-profile">
+        <%= brunk_tracing.runner.image? ? image_tag(brunk_tracing.runner.image_url(:logo)) : image_tag("https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/44/user.jpeg", style: "height: 104px;")%>
+      </div>
 
-    <div class="col-md-12">
-      <b>Mensage</b><br>
-      <%= brunk_tracing.comment%>
-    </div>
+        <div class="col-md-2" style="float: right;">
+          <b>Oferto</b><br>
+          <%= brunk_tracing.offer%>
+        </div>
+      
+
+        <div class="col-md-8">
+          <b>Email</b><br>
+          <%= brunk_tracing.runner.email%>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-8" style="padding: 10px 10px 10px 16px;">
+            <b>Mensajes</b><br>
+            <%= brunk_tracing.comment%>
+          </div>
+
+        </div>
 
     </div>
 </div>
+
+<style>
+
+  .image-profile img{
+    border-radius: 50%;
+  }
+
+  .image-profile{
+    margin-top: 10px;
+    float: left; 
+    margin-left: 10px
+  }
+
+</style>
