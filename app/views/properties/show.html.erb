@@ -63,7 +63,7 @@
 
                                       <div class="imageHolder">
 
-                                      <%= @property.images? ? image_tag(@property.images_url(:large)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
+                                      <%= @property.images? ? image_tag(@property.images_url) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ")%>
 
                                         <p class="captionText"></p>
                                       </div>
@@ -71,7 +71,7 @@
                                     <% @property.property_images.each do |image|%>
                                       <div class="imageHolder">
 
-                                      <%= image.file? ? image_tag(image.file_url(:large)) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ", style: "height: 104px;")%>
+                                      <%= image.file? ? image_tag(image.file_url) : image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiS5HhpjhUIciPRhbw4Qe_9ms0umoNaHNRltq8qZD13yyRDY6wyQ", style: "height: 104px;")%>
 
                                         <p class="captionText"></p>
                                       </div>
