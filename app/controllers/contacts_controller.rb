@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
 
 
 
-            client = Google::APIClient.new(:application_name => 'ebrunk', :application_version => '1.0', :headers => {'Content-Type' => 'application/json'})
+            client = Google::APIClient.new(:application_name => 'ebrunk', :application_version => '1.0', 'Content-Type' => 'application/json')
             client.authorization.refresh_token = current_runner.refresh_token_if_expired
             client.authorization.access_token = current_runner.token
             service = client.discovered_api('calendar', 'v3')
