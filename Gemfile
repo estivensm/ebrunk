@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.0'
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -36,6 +36,7 @@ gem 'will_paginate'
 gem "mini_magick"
 gem 'bootstrap-sass', '~> 3.3.7'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
+gem 'toastr_rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'fog', '~> 1.38'
