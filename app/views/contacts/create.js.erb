@@ -1,10 +1,8 @@
-$(".alert").fadeIn();
+var mensaje = toastr["success"]("<p>El Mensaje se envio con <b>exito!</b></p>")
 
-    
-    setTimeout(function(){
-
-
-     $(".alert").fadeOut();
+$(mensaje).fadeIn();
+  setTimeout(function(){
+  	$(mensaje).fadeOut();
 
       }, 3000);
 

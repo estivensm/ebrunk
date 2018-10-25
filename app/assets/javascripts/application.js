@@ -13,6 +13,7 @@
 //= require turbolinks
 //= require rails-ujs
 //= require jquery
+//= require toastr_rails
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap.min
@@ -20,6 +21,7 @@
 //= require sweet-alert2-rails
 //= require activestorage
 //= require_tree .
+
 
 (function($) {
   window.NestedFormEvents = function() {
@@ -141,3 +143,22 @@
                 return $();//nothing found
         };
 })(jQuery);
+
+
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "40000",
+  "hideDuration": "40000",
+  "timeOut": "50000",
+  "extendedTimeOut": "40000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
