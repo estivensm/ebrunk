@@ -54,9 +54,9 @@ class ContactsController < ApplicationController
 
     end
              
-      # if !@patient.email.blank?                                                 
-       # CitaMailer.programacion_cita(@patient,@appointment).deliver
-       #end
+                                                     
+      ContactMailer.call_acepted(@contact).deliver
+       
   	
   end
 

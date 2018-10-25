@@ -36,8 +36,8 @@
                           </div>
 
                           <div class="col-md-4" style="padding: 0px; float: right;">
-                            <%= link_to "Programar Call", crear_call_path(contacto.id), remote: true , class: "btn btn-primary"%>
-                            <%= link_to "Llamar", contacto.url_call, class: "btn btn-success"%>
+                            <%= link_to "Programar Call", crear_call_path(contacto.id), remote: true , class: "btn btn-primary" if contacto.state_call%>
+                            <%= link_to "Llamar", contacto.url_call, class: "btn btn-success" if contacto.url_call%>
                           </div>
 
                         </div>

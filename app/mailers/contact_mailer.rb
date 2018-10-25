@@ -17,9 +17,10 @@ class ContactMailer < ApplicationMailer
   #
   #   en.contact_mailer.call_acepted.subject
   #
-  def call_acepted
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def call_acepted(contact)
+    @contact = contact
+    @property = Property.find(contact.property_id)
+    @runner = Runner.find(@property.runner_id)
+    mail(to: @contact.email, subject: "El runner acepto la video llamada el #{get_date_hora(@contact.datetime_call)}")
   end
 end
