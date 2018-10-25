@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
      
      contact = Contact.find(params[:id])
    
-  	 if current_runner.token != nil && !current_runner.token.blank?
+     if current_runner.token != nil && !current_runner.token.blank?
             
             t = contact.datetime_call
             t.min < 10 ? min = "0" : min = ""
