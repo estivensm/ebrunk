@@ -47,7 +47,7 @@ class ContactsController < ApplicationController
                                     :headers => {'Content-Type' => 'application/json'})
             #@appointment.google_event_id = @set_event.data.id
            
-            #contact.url_call =  @set_event.data.hangoutLink
+            contact.url_call =  @set_event.data.hangoutLink
             contact.save
 
     end
