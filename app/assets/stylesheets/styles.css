@@ -72,19 +72,7 @@
   color: #ffffff;
   font-size: 15px;
 }
-#cssmenu > ul > li:hover:after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #0fa1e0;
-  margin-left: -10px;
-}
+
 #cssmenu > ul > li:first-child > a {
   border-radius: 5px 0 0 0;
   -moz-border-radius: 5px 0 0 0;
@@ -101,6 +89,8 @@
   -moz-border-radius: 0 5px 0 0;
   -webkit-border-radius: 0 5px 0 0;
 }
+
+
 #cssmenu > ul > li.active > a,
 #cssmenu > ul > li:hover > a {
   color: #ffffff;
@@ -179,4 +169,100 @@
 #cssmenu .has-sub ul li:last-child > a,
 #cssmenu .has-sub ul li.last > a {
   border-bottom: 0;
+}
+
+/*Dropbox*/
+
+#cssmenu li {
+  margin: 0 5px;
+  padding: 0 0 8px;
+  float: left;
+  position: relative;
+  list-style: none;
+}
+
+/*Dropbox*/
+
+#cssmenu a,
+#cssmenu a:link {
+  color: #787878;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+
+}
+
+
+
+/*Dropbox*/
+
+#cssmenu a:hover {
+  color: #fff !important;
+
+}
+
+
+/*Dropbox*/
+
+#cssmenu ul ul li:hover a,
+#cssmenu li:hover li a {
+  background: none;
+  border: none;
+  color: #666;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+
+}
+
+/*Dropbox*/
+
+#cssmenu ul ul a:hover {
+
+
+}
+
+/*Dropbox*/
+#cssmenu ul ul a{
+  color: #fff !important;
+
+}
+
+/*Dropbox*/
+
+#cssmenu li:hover > ul {
+  display: block;
+}
+
+
+/*Dropbox*/
+
+#cssmenu ul ul {
+  z-index: 1000;
+  display: none;
+  margin: 0;
+  padding: 5px 5px;
+  position: absolute;
+  top: 60px !important;
+  left: 0;
+  width: 95px !important;
+  background: black url() repeat-x 0 0;
+  border: solid 2px #0fa1e0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+/*Dropbox*/
+
+#cssmenu ul ul li {
+  float: none;
+  margin: 0;
+  padding: 3px;
 }
