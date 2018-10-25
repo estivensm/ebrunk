@@ -45,7 +45,7 @@ class ContactsController < ApplicationController
                                    :parameters => {'calendarId' => current_runner.email, 'sendNotifications' => true, "conferenceDataVersion" => 1},
                                   :body => JSON.dump(@event),
                                  :headers => {'Content-Type' => 'application/json'})
-            @appointment.google_event_id = @set_event.data.id
+            #@appointment.google_event_id = @set_event.data.id
            
             contact.url_call =  "holaaaaaaaaaaaaaaaaaaaa"
             contact.save
