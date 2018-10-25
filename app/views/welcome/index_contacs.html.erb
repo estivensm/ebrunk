@@ -35,7 +35,7 @@
                           <div class="col-md-2" style="padding: 0px;">
                             <b></b><br>
                             <%= link_to "Programar Call", crear_call_path(contacto.id), remote: true , class: "btn btn-primary"%>
-                            <%= contacto.url_call%>
+                            <%= link_to "Llamar", contacto.url_call, class: "btn btn-success"%>
                           </div>
 
                         </div>
