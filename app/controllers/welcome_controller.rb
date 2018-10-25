@@ -2,7 +2,6 @@ class WelcomeController < ApplicationController
 	before_action :authenticate_runner!, :except => [:index] 
 
 
-
 	def index
 
 
