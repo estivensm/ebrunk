@@ -16,19 +16,21 @@
         </div>
 
         <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
-          <%= select_tag 'search2', options_for_select(get_country.collect{ |u| ["#{u.name}", u.id, ] }),{:class => "form-control sh4", include_blank: true }%>
+          <%= select_tag 'search2', options_for_select(get_country.collect{ |u| ["#{u.name}", u.id, ] }),{:class => "form-control sh4", include_blank: true, :prompt => 'Seleciona Un Pais' }%>
         </div>
 
         <div class="col-md-3" style=" padding-right: 2px; padding-left: 2px;">
-          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control"%>
+          <%= select_tag 'search3', options_for_select(["Apartamento", "Casa", "Finca", "Parqueadero","Oficina", "Local", "Bodega", "Lote","Habitacion", "Consultorio", "Edificio", "Cabaña","Casa Campestre", "Aparta Estudio", "Casa Lote"]),{:class => 'form form-control select' , :prompt => 'Tipo de Inmueble'}%>
         </div>
 
         <div class="col-md-3" style=" padding-right: 2px;  padding-left: 2px;">
-          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control"%>
+          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Ciudad", class: "form form-control"%>
         </div>
 
         <div class="col-md-1" style=" padding-right: 2px; padding-left: 2px;">
-          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control", style: "width: 181px !important;"%>
+
+        <%= select_tag 'search4', options_for_select(["1", "2", "3", "4","5", "6", "Campestre"]),{:class => 'form form-control select' , :prompt => 'Tipo de Estrato', style: "width: 181px !important;"}%>
+
         </div>
 
       <% end -%>
