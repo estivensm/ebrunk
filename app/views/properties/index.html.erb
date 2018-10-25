@@ -12,49 +12,64 @@
               <div class="col-md-12" style="padding: 0px;">
                   <div class="card">
                       <div class="card-body">
-                          <strong><p>Category</p></strong>
+                        <%= form_tag properties_path, :method => 'get' do%>
+                          <strong><p>Filtros</p></strong>
                           <ul class="list-unstyled">
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
+
+                            <li>
+                              <%= select_tag 'search5', options_for_select(["1", "2", "3", "4","5", "6", "7", "8","9", "10"]),{:class => 'form form-control select' , :prompt => 'Numero de Baños'}%>                              
+                            </li>
+                            <br>
+
+                            <li>
+                               <%= select_tag 'search9', options_for_select(["1", "2", "3", "4","5", "6", "7", "8","9", "10","12","13","14"]),{:class => 'form form-control select' , :prompt => 'Numero de Habitaciones'}%>
+                            </li>
+                            <br>
+
+                            <li>
+                               <%= text_field_tag :search,params[:search5], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Ciudad", class: "form form-control"%>
+                            </li>
+                            <br>
+
+                            <li>
+                              <%= text_field_tag :search,params[:search6], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Barrio", class: "form form-control"%>
+                            </li>
+                            <br>
+                            <strong><p>Habitaciones</p></strong>
+
+                            <div class="col-md-3" style="padding-left: 0px;">
+                              <%= check_box_tag "adsasd", id: "check1" %>
+                              <small>1</small>
+                            </div>
+
+                            <div class="col-md-3" style="padding-left: 0px;">
+                              <%= check_box_tag "adsasd", id: "check1" %>
+                              <small>2</small>
+                            </div>
+
+                            <div class="col-md-3" style="padding-left: 0px;">
+                              <%= check_box_tag "adsasd", id: "check1" %>
+                              <small>3</small>
+                            </div>
+
+                            <div class="col-md-3" style="padding-left: 0px; margin-bottom: 10px;">
+                              <%= check_box_tag "adsasd", id: "check1" %>
+                              <small>4</small>
+                            </div>
+
+                            <li>
+                              <%= text_field_tag :search,params[:search6], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Valor", class: "form form-control"%>
+                            </li>
+
+
+
+                            <div class="actions" style="margin-top: 20px">
+                              <%= button_tag class: "btn btn-primary btn-block", :title => "Buscar Registros", id: "btn3" do %>
+                                <i class="fas fa-search" style=""></i>Aplicar Filtros
+                              <% end -%>
+                            </div>
                           </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="row mb-3">
-              <div class="col-md-12" style="padding: 0px;">
-                  <div class="card">
-                      <div class="card-body">
-                          <strong><p>Nature</p></strong>
-                          <ul class="list-unstyled">
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="row mb-3">
-              <div class="col-md-12" style="padding: 0px;">
-                  <div class="card">
-                      <div class="card-body">
-                          <strong><p>Location</p></strong>
-                          <ul class="list-unstyled">
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                             <a href="#"> <li>Digital Accuracy</li></a>
-                          </ul>
+                        <% end -%>
                       </div>
                   </div>
               </div>

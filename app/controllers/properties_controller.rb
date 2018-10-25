@@ -5,9 +5,8 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   layout 'runner_home', :only => [:new, :edit]
   def index
-
-    if params[:search] || params[:search2] || params[:search3] || params[:search4]
-    @properties = Property.all.search(params[:search],params[:search2], params[:search3],params[:search4]).paginate(:page => params[:page], :per_page => 4)
+    if params[:search] || params[:search2] || params[:search3] || params[:search4] || params[:search5] || params[:search6]
+    @properties = Property.all.search(params[:search],params[:search2], params[:search3],params[:search4],params[:search5],params[:search6]).paginate(:page => params[:page], :per_page => 4)
 
     else
     @properties = Property.all.paginate(:page => params[:page], :per_page => 4)
