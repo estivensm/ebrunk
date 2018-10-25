@@ -36,18 +36,18 @@ class ContactsController < ApplicationController
           }
 
 
-          
+
             client = Google::APIClient.new
             client.authorization.refresh_token = current_runner.refresh_token_if_expired
             client.authorization.access_token = current_runner.token
-            service = client.discovered_api('calendar', 'v3')
-            @set_event = client.execute(:api_method => service.events.insert,
-                                    :parameters => {'calendarId' => current_runner.email, 'sendNotifications' => true, "conferenceDataVersion" => 1},
-                                    :body => JSON.dump(@event),
-                                    :headers => {'Content-Type' => 'application/json'})
+            #service = client.discovered_api('calendar', 'v3')
+           # @set_event = client.execute(:api_method => service.events.insert,
+                                    #:parameters => {'calendarId' => current_runner.email, 'sendNotifications' => true, "conferenceDataVersion" => 1},
+                                    #:body => JSON.dump(@event),
+                                    #:headers => {'Content-Type' => 'application/json'})
             #@appointment.google_event_id = @set_event.data.id
-            puts "holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-            contact.url_call =  @set_event.data.hangoutLink
+           
+            #contact.url_call =  @set_event.data.hangoutLink
             contact.save
 
     end
