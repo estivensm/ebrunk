@@ -12,4 +12,5 @@
 #
 
 class BrunkTracing < ApplicationRecord
+	belongs_to :runner
 end

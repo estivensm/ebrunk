@@ -43,6 +43,7 @@ class Runner < ApplicationRecord
   has_many :brunks , :foreign_key => 'runner_one_id'
   has_many :brunks_one , :foreign_key => 'runner_two_id',  class_name: 'Brunk'
   has_many :properties
+  has_many :brunk_tracing
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
