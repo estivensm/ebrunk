@@ -12,12 +12,18 @@ module ApplicationHelper
 		Property.where(runner_id: current_runner.id).show_true.count
 	end
 
+	def get_state_call(state_call)
+
+  		state_call == true ? "Si" : "No"
+  
+	end
+
 	def page_entries_info(collection, options = {})
 	  entry_name = options[:entry_name] || (collection.empty?? 'Propiedades' :
 	      collection.first.class.name.split('::').last.titleize)
 		  if collection.total_pages < 2
 		    case collection.size
-		    when 0; "No hay #{entry_name.pluralize} registrados"
+		    when 0; "No hay #{entry_name.pluralize} registradas"
 		    else; %{Mostrando %d de %d #{entry_name.pluralize}} % [
 		      collection.length ,
 		      collection.total_entries
