@@ -41,7 +41,7 @@
         </table>
 
         <div class="col-md-12" style="padding: 0px;">
-          <div class="container" style="padding-left: 0px;" >
+          <div class="" >
             <div class="col-md-6" style="padding: 0px;">
                 <div class="tab" role="tabpanel">
                         <!-- Nav tabs -->
@@ -54,7 +54,7 @@
                         <div class="tab-content tabs" style="width: 90%;">
                             <div role="tabpanel" class="tab-pane fade in active" id="Section1">
 
-                                <div class="galleryContainer">
+                                <div class="galleryContainer" style="margin-bottom: 16px; width: 224%;">
                                   <div class="slideShowContainer">
                                       <div id="playPause" onclick="playPauseSlides()"></div>
                                       <div onclick="plusSlides(-1)" class="nextPrevBtn leftArrow"><span class="arrow arrowLeft"></span></div>
@@ -143,7 +143,7 @@
     
     <!-- Right Column -->
     <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center form-send">
+      <div class="w3-card w3-round w3-white w3-center" id="form-send">
         <div class="w3-container" style="padding: 0px; ">
           <h2>Mensage</h2><br>
 
@@ -158,7 +158,7 @@
             <br>
 
             <%= label_tag :Mensage %>
-            <%= text_area_tag :message,nil, class: "form form-control", :placeholder => "Mensage" ,:rows => 7,  :cols =>25 %>
+            <%= text_area_tag :message,nil, class: "form form-control", :placeholder => "Mensage" ,:rows => 3,  :cols =>25 %>
             <br>
             <p>Solicitud de Video llamada</p>
             <div class="col-md-12"  style="margin-left: 12px;">
@@ -232,6 +232,21 @@
        
     });
 
+</script>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("form-send");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
 </script>
     
   <script type="text/javascript">
