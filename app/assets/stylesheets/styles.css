@@ -20,6 +20,7 @@
   background: linear-gradient(to bottom, #333333 0%, #141414 100%);
   border-bottom: 2px solid #0fa1e0;
   width: auto;
+  height: 100px;
 }
 #cssmenu:after,
 #cssmenu ul:after {
@@ -40,14 +41,17 @@
   font-family: Helvetica, Arial, Verdana, sans-serif;
   padding: 19px 20px;
   text-decoration: none;
+  background: none;
 }
 #cssmenu ul {
   list-style: none;
+      margin-left: 185px;
 }
 #cssmenu > ul > li {
   display: inline-block;
   float: left;
   margin: 0;
+  margin-top: 20px;
 }
 #cssmenu.align-center {
   text-align: center;
