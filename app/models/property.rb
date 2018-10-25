@@ -46,13 +46,17 @@ class Property < ApplicationRecord
     scope :show_false, -> { where(brunk: false) }
 
 
-    def self.search(  search ,search2, search3, search4)
+    def self.search(  search ,search2, search3, search4, search5, search6)
 
         search != "" ? (scope :ciudad, -> { where(city: search) }) : (scope :ciudad, -> { where.not(id: nil) }) 
         search2 != "" ? (scope :pais, -> { where(country_id: search2) }) : (scope :pais, -> { where.not(id: nil) })
         search3 != "" ? (scope :tipo_propiedad, -> { where(property_type: search3)}) : (scope :tipo_propiedad, -> { where.not(id: nil) })
         search4 != "" ? (scope :estrato_propiedad, -> { where(stratum: search4)}) : (scope :estrato_propiedad, -> { where.not(id: nil) })
-        ciudad.pais.tipo_propiedad.estrato_propiedad
+
+        search5 != "" ? (scope :banos, -> { where(number_bathrooms: search5) }) : (scope :banos, -> { where.not(id: nil) }) 
+        search6 != "" ? (scope :habitaciones, -> { where(number_bedrooms: search6) }) : (scope :habitaciones, -> { where.not(id: nil) })
+
+        ciudad.pais.tipo_propiedad.estrato_propiedad.banos.habitaciones
 
     end
 

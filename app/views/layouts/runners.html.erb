@@ -83,9 +83,15 @@
     </div>
 </div>
 -->
-
+<% if controller_name == "welcome"%>
+<% else %>
+<div class="container-fluid" style="background: #252525">
+  <a><img src="https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/59/WhatsApp_Image_2018-10-25_at_1.53.16_PM.jpeg" style="border-radius: 50%; width: 126px !important; margin-bottom: 10px; margin-top: 10px; height: 118px !important;"></a>
+</div>
+<% end -%>
 <div id='cssmenu'>
 <ul>
+
     <li><%= link_to "Home", root_path %></li>
    <li><%= link_to "Propiedades", properties_path %></li>
    <li><a href='#'><span>About</span></a></li>

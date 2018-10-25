@@ -1,5 +1,10 @@
 var mensaje = toastr["success"]("<p>El Mensaje se envio con <b>exito!</b></p>")
 
+document.getElementById('name').value = ""
+document.getElementById('email').value = ""
+document.getElementById('message').value = ""
+
+
 $(mensaje).fadeIn();
   setTimeout(function(){
   	$(mensaje).fadeOut();
