@@ -38,7 +38,7 @@ class ContactsController < ApplicationController
 
 
             client = Google::APIClient.new
-            #client.authorization.refresh_token = current_runner.refresh_token_if_expired
+            client.authorization.refresh_token = current_runner.refresh_token_if_expired
             #client.authorization.access_token = current_runner.token
             # service = client.discovered_api('calendar', 'v3')
             #@set_event = client.execute(:api_method => service.events.insert,
