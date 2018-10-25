@@ -37,10 +37,10 @@ class ContactsController < ApplicationController
 
 
 
-            client = Google::APIClient.new
+            client = Google::APIClient.new(:application_name => 'ebrunk', :application_version => '1.0')
             client.authorization.refresh_token = current_runner.refresh_token_if_expired
             client.authorization.access_token = current_runner.token
-            #service = client.discovered_api('calendar', 'v3')
+            service = client.discovered_api('calendar', 'v3')
             #@set_event = client.execute(:api_method => service.events.insert,
              #                       :parameters => {'calendarId' => current_runner.email, 'sendNotifications' => true, "conferenceDataVersion" => 1},
               #                      :body => JSON.dump(@event),
