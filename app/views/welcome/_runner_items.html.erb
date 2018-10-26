@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row" style="padding: 9px;">
+      <div class="col-md-3 image-profile" style="padding-bottom:20px;">
+                                
+        <%= runner.image? ? image_tag(runner.image_url(:logo)) : image_tag("https://dnuba.s3.amazonaws.com/uploads/bank_image/achivo/44/user.jpeg")%>
+      </div>
+
+      <div class="col-md-9 info">
+        <div class="col-md-12">
+          <b>Nombre: </b><%= runner.name%><br><br>
+          <b>Email: </b><%= runner.email %><br><br>
+          <b>Numero de Propiedade: </b><%= Property.where(runner_id: runner.id).count %>  
+
+          <div class="col-md-3" style="float: right; padding: 0px;">
+            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+          </div>
+
+        </div>
+                          
+      </div>
+    </div>                            
+  </div>
+</div>
+
+<style>
+  .image-profile img{
+    border-radius: 50%;
+    height: 150px;
+  }
+
+  .fa-star{
+    color: #fbe916;
+  }
+ 
+</style>

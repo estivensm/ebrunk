@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get "runner_home", to: "welcome#runner_home", as: "runner_home"
   
   get "pagina_show", to: "welcome#pagina_show", as: "pagina_show"
+  
+  get "runners_avatar", to: "welcome#runners_avatar", as: "runners_avatar"
 
   get "index_contacs", to: "welcome#index_contacs", as: "index_contacs"
 

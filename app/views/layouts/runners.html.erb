@@ -91,10 +91,9 @@
 <div id='cssmenu'>
 <ul>
 
-    <li><%= link_to "Home", root_path %></li>
+   <li><%= link_to "Home", root_path %></li>
    <li><%= link_to "Propiedades", properties_path %></li>
-   <li><a href='#'><span>About</span></a></li>
-   <li class='last'><a href='#'><span>Contact</span></a></li>
+   <li><%= link_to "Runners", runners_avatar_path %></li>
    <% if runner_signed_in? %>
 
     <li class='has-sub' style="float: right; margin-right: 100px;  cursor: pointer;"><a><span><%= current_runner.name%></span></a>

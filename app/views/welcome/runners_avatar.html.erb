@@ -1,0 +1,67 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<section class="mb-5">
+    <div class="container">
+    <div class="row title py-3">
+        <div class="col-md-12" style="padding-left: 0px;">
+            <%= render "filtros"%>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-md-3">
+          <div class="row mb-3">
+              <div class="col-md-12" style="padding: 0px;">
+                  <div class="card">
+                      <div class="card-body">
+                        <%= form_tag properties_path, :method => 'get' do%>
+                          <strong><p>Los Runners</p></strong>
+                          <ul class="list-unstyled">
+
+                            <li>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la cre</li>
+                            
+                          </ul>
+
+                        <% end -%>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                  <% @runner.each do |runner| %>  
+                    <%= render "runner_items", runner: runner%>
+                    <br>
+                  <% end -%>
+                </div>
+                                          <div class = "col-md-12 paginate text-center title-table1">
+    <%= will_paginate @runner, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+  </div>
+            </div>           
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+
+.bg-orange {
+  background:#d8622b;color:#fff!important;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+img{
+  width:100%;max-height:560px;
+}
+
+a{
+  color:#696969;
+}
+
+.card-body{
+  font-size: 18px;
+}
+</style>

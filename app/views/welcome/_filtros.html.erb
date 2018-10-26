@@ -1,0 +1,66 @@
+<div class="container-fluid" id="filtros">
+
+  <h4><%= @runner.count %> Runners Disponibles <br></h4> <i><%= page_entries_runner @runner %></i><br><br>
+
+        <%= form_tag runners_avatar_path, :method => 'get' do%>
+
+        <div class="col-md-2" style="float: right; padding: 0px; width: 99px;">
+          <%= link_to runners_avatar_path, :title => "Cancelar Filtros", class: "btn btn-danger", id: "btn3" do%>
+            <i class="fas fa-ban"></i>
+          <% end -%> 
+
+          <%= button_tag class: "btn btn-primary sh3", :title => "Buscar Registros", id: "btn3" do %>
+          <i class="fas fa-search" style=""></i>
+          <% end -%>
+
+        </div>
+
+        <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
+          <%= text_field_tag :search,params[:search], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Nombre", class: "form form-control"%>
+        </div>
+
+        <div class="col-md-3" style=" padding-right: 2px; padding-left: 2px;">
+          <%= email_field_tag :search1,params[:search1], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Email", class: "form form-control"%>
+        </div>
+
+        <div class="col-md-3" style=" padding-right: 2px;  padding-left: 2px;">
+          <%= text_field_tag :search2,params[:search2], autocomplete: "off", :requerid => true, placeholder: "Buscar Por Ciudad", class: "form form-control"%>
+        </div>
+
+        <div class="col-md-1" style=" padding-right: 2px; padding-left: 2px;">
+        <%= select_tag 'search3', options_for_select(get_country.collect{ |u| ["#{u.name}", u.id, ] }),{:class => "form-control sh4", include_blank: true, :prompt => 'Seleciona Un Pais', style: "width: 181px !important;" }%>
+        </div>
+
+      <% end -%>
+</div>
+
+
+<style>
+
+  #filtros{
+    background: #efecec;
+    width: 100%;
+    padding: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  #count{
+    background: #0d67c3;
+    padding: 5px 11px;
+    border-radius: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #btn3{
+    float: right;
+    margin-left: 10px;
+  }
+
+  #filtros h4{
+    color: #696a73;
+    text-transform: capitalize;
+  }
+
+</style>

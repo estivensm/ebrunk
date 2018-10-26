@@ -120,4 +120,16 @@ def token_expired?
   false # token not expired. :D
 end
 
+  def self.search(search ,search1, search2, search3 )
+
+        search != "" ? (scope :nombre, -> { where(name: search) }) : (scope :nombre, -> { where.not(id: nil) }) 
+        search1 != "" ? (scope :correo, -> { where(email: search1) }) : (scope :correo, -> { where.not(id: nil) })
+        search2 != "" ? (scope :ciudad, -> { where(city: search2)}) : (scope :ciudad, -> { where.not(id: nil) })
+        search3 != "" ? (scope :pais, -> { where(country_id: search3)}) : (scope :pais, -> { where.not(id: nil) })
+
+
+        nombre.correo.ciudad.pais
+
+    end
+
 end
